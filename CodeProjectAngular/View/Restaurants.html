@@ -6,22 +6,22 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Name</th>
-                <th>Director man</th>
+                <th>City</th>
+                <th>Country</th>
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="movie in restaurants">
+            <tr ng-repeat="restaurant in restaurants">
                 <!-- Similar to a foreach loop, C#: foreach(var movie in movies ){...} -->
                 <td>
-                    {{movie.Id}}
+                    {{restaurant.Name}}
                 </td>
                 <td>
-                    {{movie.Name}}
+                    {{restaurant.City}}
                 </td>
                 <td>
-                    {{movie.Director}}
+                    {{restaurant.Country}}
                 </td>
             </tr>
         </tbody>
