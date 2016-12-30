@@ -1,5 +1,4 @@
-﻿using CodeProjectAngular.WebAPI.Models;
-using CodeProjectAngular.WebAPI.DTO;
+﻿using CodeProjectAngular.WebAPI.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +10,7 @@ namespace CodeProjectAngular.WebAPI.Controllers
 {
     public class RestaurantsController : ApiController
     {
-        OdeToFoodDb _db = new OdeToFoodDb();
+        OdeToDb1 _db = new OdeToDb1();
 
         // GET api/values
         public IEnumerable<Restaurant> Get()
