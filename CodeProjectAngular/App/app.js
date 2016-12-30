@@ -24,6 +24,11 @@ angular.module('app',
                     templateUrl: './View/Movies.html',
                     controller: 'MoviesController'
                 })
+                .state('restaurants', {
+                    url: '/restaurants',
+                    templateUrl: './View/Restaurants.html',
+                    controller: 'RestaurantsController'
+                })
                 .state('otherwise', {
                     url: '*path',
                     templateUrl: '/View/Error.html',
