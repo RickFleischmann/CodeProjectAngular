@@ -20,7 +20,7 @@ namespace CodeProjectAngular.WebAPI.Controllers
                     new MoviesDTO { Id = 3, Name = "Dancer in the Dark", Director = "Lars von Trier" },
                     new MoviesDTO { Id = 4, Name = "WebAPI", Director = "Cool!" }
                 };
-           
+
             return movies;
         }
     }
