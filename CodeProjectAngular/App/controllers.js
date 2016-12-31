@@ -14,8 +14,15 @@
              console.log(data);
              window.alert('error');
          });
-    }
-  )
+    })
+
+    .controller('HomeController', function ($scope) {
+    })
+
+    .controller('ErrorCtrl', function ($scope) {
+    })
+
+
    .controller('OrchestrationsController', function ($scope, $http) {
        $http({
            method: 'GET',

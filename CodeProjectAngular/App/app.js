@@ -31,8 +31,8 @@ angular.module('app',
                 })
                 .state('otherwise', {
                     url: '*path',
-                    templateUrl: '/View/Error.html',
-                    controller: 'ErrorCtrl'
+                    templateUrl: '/View/Home.html',
+                    controller: 'HomeController'
                 });
         }]
 
