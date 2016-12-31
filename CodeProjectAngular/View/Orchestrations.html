@@ -8,17 +8,16 @@
             <tr>
                 <th>Title</th>
                 <th>Arranger</th>
-                <th>Catalog #</th>
+                <th>Catalog#</th>
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="orchestration in orchestrations">
-                <!-- Similar to a foreach loop, C#: foreach(var movie in movies ){...} -->
+             <tr ng-repeat="orchestration in orchestrations"> <!-- Similar to a foreach loop, C#: foreach(var movie in movies ){...} -->
                 <td>
                     {{orchestration.TITLE}}
                 </td>
                 <td>
-                    {{orchestration.ARRANGER1}}
+                    {{orchestration.ARRANGERS1}}
                 </td>
                 <td>
                     {{orchestration.CATNUM}}
