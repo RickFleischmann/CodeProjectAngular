@@ -19,15 +19,11 @@ angular.module('app',
                     templateUrl: './View/Home.html',
                     controller: 'HomeController'
                 })
-                .state('movies', {
-                    url: '/movies',
-                    templateUrl: './View/Movies.html',
-                    controller: 'MoviesController'
-                })
-                .state('restaurants', {
-                    url: '/restaurants',
-                    templateUrl: './View/Restaurants.html',
-                    controller: 'RestaurantsController'
+ 
+                .state('orchestrations', {
+                    url: '/orchestrations',
+                    templateUrl: './View/orchestrations.html',
+                    controller: 'OrchestrationsController'
                 })
                 .state('otherwise', {
                     url: '*path',

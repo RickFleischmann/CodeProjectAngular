@@ -1,16 +1,7 @@
 ﻿angular.module('app.controllers', [])
 
     .controller('MoviesController', function ($scope, $http) {
-        // this will do for now
-        /* $scope.movies =
-         [
-             { Id: 1, Name: "Fight Club",Director: "David Fincher" },
-             { Id: 2, Name: "Into The Wild", Director: "Sean Penn" },
-             { Id: 3, Name: "Dancer in the Dark", Director:"Lars von Trier " }
-         ];
-         */
-
-
+ 
         $http({
             method: 'GET',
             url: 'http://99.248.19.5//webAPI/api/movies'
@@ -25,10 +16,10 @@
          });
     }
   )
-   .controller('RestaurantsController', function ($scope, $http) {
+   .controller('OrchestrationsController', function ($scope, $http) {
        $http({
            method: 'GET',
-           url: 'http://99.248.19.5/webAPI/api/restaurants'
+           url: 'http://99.248.19.5/webAPI/api/orchestrations'
        })
       .success(function (data) {
           console.log(data);

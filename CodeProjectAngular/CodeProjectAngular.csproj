@@ -87,6 +87,7 @@
     <Content Include="View\Error.html" />
     <Content Include="View\Home.html" />
     <Content Include="View\Movies.html" />
+    <Content Include="View\Orchestrations.html" />
     <Content Include="View\Restaurants.html" />
     <Content Include="Web.config" />
   </ItemGroup>
