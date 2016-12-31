@@ -13,7 +13,7 @@
 
         $http({
             method: 'GET',
-            url: 'http://virtual-pc/webAPI/api/movies'
+            url: 'http://99.248.19.5//webAPI/api/movies'
         })
          .success(function (data) {
              console.log(data);
@@ -28,7 +28,7 @@
    .controller('RestaurantsController', function ($scope, $http) {
        $http({
            method: 'GET',
-           url: 'http://virtual-pc/webAPI/api/restaurants'
+           url: 'http://99.248.19.5/webAPI/api/restaurants'
        })
       .success(function (data) {
           console.log(data);
