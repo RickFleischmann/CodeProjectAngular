@@ -1,6 +1,7 @@
 ﻿using CodeProjectAngular.WebAPI.DTO;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -13,11 +14,39 @@ namespace CodeProjectAngular.WebAPI.Controllers
         CatalogDbEntities _db = new CatalogDbEntities();
 
         // GET api/values
-        public IEnumerable<Orchestration> Get()
-        {
-            var model = _db.Orchestrations.ToList();
+        //public IEnumerable<Orchestration> Get()
+        //{
+        //    var model = _db.Orchestrations.ToList();
+        //    return model;
+        //}
+
+         // GET api/values
+        public IEnumerable<Orchestration> Get() { 
+        
+            var titleParameter = new SqlParameter("@TITLEFILTER","old");
+
+            var model = _db.Database
+                .SqlQuery<Orchestration>("GetOrchestrations @TITLEFILTER", titleParameter)
+                .ToList();
+
             return model;
+
         }
+
+        // GET api/values
+        public IEnumerable<Orchestration> Get(string titleContains)
+        {
+
+            var titleParameter = new SqlParameter("@TITLEFILTER", titleContains);
+
+            var model = _db.Database
+                .SqlQuery<Orchestration>("GetOrchestrations @TITLEFILTER", titleParameter)
+                .ToList();
+
+            return model;
+
+        }
+
 
         protected override void Dispose(bool disposing)
         {
@@ -27,6 +56,8 @@ namespace CodeProjectAngular.WebAPI.Controllers
             
             base.Dispose(disposing);
         }
+
+
 
  
     }

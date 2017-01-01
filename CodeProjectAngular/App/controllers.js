@@ -22,20 +22,45 @@
     .controller('ErrorCtrl', function ($scope) {
     })
 
-
    .controller('OrchestrationsController', function ($scope, $http) {
-       $http({
-           method: 'GET',
-           url: 'http://99.248.19.5/webAPI/api/orchestrations'
-       })
-      .success(function (data) {
-          
-          $scope.orchestrations = data;
 
-          console.log($scope.orchestrations);
-      })
-      .error(function (data, status) {
-          console.log(data);
-          window.alert('error');
-      });
+      // $http({
+      //     method: 'GET',
+      //     url: 'http://99.248.19.5/webAPI/api/orchestrations'
+      // })
+      //.success(function (data) {
+      //    $scope.orchestrations = data;
+      //    //onsole.log($scope.orchestrations);
+      //})
+      //.error(function (data, status) {
+      //    console.log(data);
+      //    window.alert('error');
+      //});
+
+
+       $scope.ChangedTitleSearch = function () {
+           if ($scope.titleContains.length < 3) return;
+           $scope.GetTitleBySubstring();
+       }
+
+       $scope.GetTitleBySubstring = function () {
+           $http({
+               method: 'GET',
+               url: 'http://99.248.19.5/webAPI/api/orchestrations?titleContains=' + $scope.titleContains,
+               } 
+           )
+           .success(function (data) {
+               $scope.orchestrations = data;
+               //onsole.log($scope.orchestrations);
+           })
+           .error(function (data, status) {
+               //onsole.log(data);
+               window.alert('error');
+           });
+
+
+
+       }
+
+
    });
