@@ -1,7 +1,10 @@
-﻿angular.module('app.controllers', [])
+﻿
+(function() {
 
-    .controller('MoviesController', function ($scope, $http) {
- 
+    var appVar = angular.module("app");
+
+    var MoviesController = function ($scope, $http) {
+
         $http({
             method: 'GET',
             url: 'http://99.248.19.5//webAPI/api/movies'
@@ -14,44 +17,16 @@
              console.log(data);
              window.alert('error');
          });
-    })
+    };
 
-    .controller('HomeController', function ($scope) {
-    })
+    var  HomeController = function ($scope) {
+    }
 
-    .controller('ErrorCtrl', function ($scope) {
-    })
+    var ErrorCtrl = function ($scope) {
+    };
 
-   .controller('OrchestrationsController', function ($scope, $http) {
+    appVar.controller("MoviesController", ["$scope", "$http", MoviesController]);
+    appVar.controller("HomeController",  ["$scope", HomeController]);
+    appVar.controller("ErrorCtrl",  ["$scope",ErrorCtrl]);
 
-        $scope.sortType = 'ARRANGERS1'; // set the default sort type
-       $scope.sortReverse = false;  // set the default sort order
-       $scope.searchOrch = '';     // set the default search/filter term
-
-
-       $scope.ChangedTitleSearch = function () {
-           if ($scope.titleContains.length < 3) return;
-           $scope.GetTitleBySubstring();
-       }
-
-       $scope.GetTitleBySubstring = function () {
-           $http({
-               method: 'GET',
-               url: 'http://99.248.19.5/webAPI/api/orchestrations?titleContains=' + $scope.titleContains,
-               } 
-           )
-           .success(function (data) {
-               $scope.orchestrations = data;
-               //onsole.log($scope.orchestrations);
-           })
-           .error(function (data, status) {
-               //onsole.log(data);
-               window.alert('error');
-           });
-
-
-
-       }
-
-
-   });
+}());

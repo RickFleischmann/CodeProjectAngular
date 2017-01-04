@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App\baseDirective.js" />
+    <Content Include="App\orchestrations.js" />
     <Content Include="packages.config" />
     <None Include="Properties\PublishProfiles\CodeProjectAngular.pubxml" />
     <None Include="Web.Debug.config">
@@ -84,6 +85,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery.js" />
     <Content Include="Style\CSS\bootstrap.css" />
+    <Content Include="Style\CSS\common.css" />
     <Content Include="Style\CSS\style.css" />
     <Content Include="View\Error.html" />
     <Content Include="View\Home.html" />

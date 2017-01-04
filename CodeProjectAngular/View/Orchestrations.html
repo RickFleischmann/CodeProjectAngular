@@ -10,32 +10,42 @@
 </div>
 
 <div class="row">
-    <table class="table table-condensed tableDarkHeader table-vcenter">
+    <table class="table table-hover table-condensed tableDarkHeader table-stickyHeader">
         <thead>
             <tr>
-                <td>
- 
-                    <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-default" ng-click="sortType = 'TITLE'">
-                            <span ng-show="sortType == 'TITLE'" class="fa fa-caret-down"></span>
-                            Title
-                        </button>
-                    </div>
+                <th>
+                    <div sort by="sortType" reverse="sortReverse" order="'TITLE'">Title</div>
+                </th>
 
+                <th
+                    <div sort by="sortType" reverse="sortReverse" order="'ARRANGERS1'">Arranger1</div>
+                </th>
 
-                </td>
-                <td>
-                    <div sort by="sortType" reverse="sortReverse" order="'ARRANGERS1'">Arranger</div>
+                <th>
+                    <div sort by="sortType" reverse="sortReverse" order="'CATNUM'">Catalog #</div>
+                </th>
 
-                </td>
-                <td>
-                    <a href="#" ng-click="sortType = 'CATNUM'">
-                        CATALOG #
-                        <span ng-show="sortType == 'CATNUM'" class="fa fa-caret-down"></span>
-                    </a>
-                </td>
-
-
+                <th>
+                    <div sort by="sortType" reverse="sortReverse" order="'LARGE'">Large</div>
+                </th>
+                <th>
+                    <div sort by="sortType" reverse="sortReverse" order="'KEY'">Key</div>
+                </th>
+                <th>
+                    <div sort by="sortType" reverse="sortReverse" order="'ARRANGERS2'">Arranger2</div>
+                </th>
+                <th>
+                    <div sort by="sortType" reverse="sortReverse" order="'LYRICISTS1'">Lyricist1</div>
+                </th>
+                <th>
+                    <div sort by="sortType" reverse="sortReverse" order="'COMPOSERS1'">Composer1</div>
+                </th>
+                <th>
+                    <div sort by="sortType" reverse="sortReverse" order="'COMPOSERS2'">Composer2</div>
+                </th>
+                <th>
+                    <div sort by="sortType" reverse="sortReverse" order="'LYRICISTS2'">Lyricist2</div>
+                </th>
 
             </tr>
         </thead>
@@ -50,6 +60,27 @@
                 </td>
                 <td>
                     {{orchestration.CATNUM}}
+                </td>
+                <td>
+                    {{orchestration.LARGE}}
+                </td>
+                <td>
+                    {{orchestration.KEY}}
+                </td>
+                <td>
+                    {{orchestration.ARRANGERS2}}
+                </td>
+                <td>
+                    {{orchestration.LYRICISTS1}}
+                </td>
+                <td>
+                    {{orchestration.COMPOSERS1}}
+                </td>
+                <td>
+                    {{orchestration.COMPOSERS2}}
+                </td>
+                <td>
+                    {{orchestration.LYRICISTS2}}
                 </td>
             </tr>
         </tbody>
