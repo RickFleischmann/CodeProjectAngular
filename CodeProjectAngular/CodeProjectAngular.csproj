@@ -65,6 +65,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App\baseDirective.js" />
     <Content Include="packages.config" />
     <None Include="Properties\PublishProfiles\CodeProjectAngular.pubxml" />
     <None Include="Web.Debug.config">

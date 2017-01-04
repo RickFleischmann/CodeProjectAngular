@@ -10,16 +10,38 @@
 </div>
 
 <div class="row">
-    <table class="table">
+    <table class="table table-condensed tableDarkHeader table-vcenter">
         <thead>
             <tr>
-                <th>Title</th>
-                <th>Arranger</th>
-                <th>Catalog#</th>
+                <td>
+ 
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-default" ng-click="sortType = 'TITLE'">
+                            <span ng-show="sortType == 'TITLE'" class="fa fa-caret-down"></span>
+                            Title
+                        </button>
+                    </div>
+
+
+                </td>
+                <td>
+                    <div sort by="sortType" reverse="sortReverse" order="'ARRANGERS1'">Arranger</div>
+
+                </td>
+                <td>
+                    <a href="#" ng-click="sortType = 'CATNUM'">
+                        CATALOG #
+                        <span ng-show="sortType == 'CATNUM'" class="fa fa-caret-down"></span>
+                    </a>
+                </td>
+
+
+
             </tr>
         </thead>
         <tbody>
-             <tr ng-repeat="orchestration in orchestrations"> <!-- Similar to a foreach loop, C#: foreach(var movie in movies ){...} -->
+            <tr ng-repeat="orchestration in orchestrations | orderBy:sortType:sortReverse">
+                <!-- Similar to a foreach loop, C#: foreach(var movie in movies ){...} -->
                 <td>
                     {{orchestration.TITLE}}
                 </td>
