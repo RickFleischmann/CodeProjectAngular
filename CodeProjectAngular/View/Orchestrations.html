@@ -1,17 +1,31 @@
-﻿<div class="row">
-    <div class="input-group col-lg-3">
-        <!--1/4 of page-->
-        <input ng-model="titleContains" ng-model-options='{ debounce: 750 }' autofocus ng-change="ChangedTitleSearch()" type="text" class="form-control" placeholder="Title Contains...">
+﻿
+    <!--<div class="row">
+        <div class="input-group col-lg-3 inputrow">
+             <input ng-model="titleContains" ng-model-options='{ debounce: 750 }' autofocus ng-change="ChangedTitleSearch()" type="text" class="form-control" placeholder="Title Contains...">
 
-        <span class="input-group-btn">
-            <button ng-click="GetTitleBySubstring()" class="btn btn-info" type="button">Go!</button>
-        </span>
-    </div><!-- /input-group -->
-</div>
+            <span class="input-group-btn">
+                <button ng-click="GetTitleBySubstring()" class="btn btn-info" type="button">Go!</button>
+            </span>
+        </div>
+    </div>-->
+
 
 <div class="row">
-    <table class="table table-hover table-condensed tableDarkHeader table-stickyHeader">
+    <table class="table table-hover table-condensed tableDarkHeader">
         <thead>
+            <tr>
+                <th colspan="10">
+                    <div class="input-group col-lg-3 inputrow">
+                        <!--1/4 of page-->
+                        <input ng-model="titleContains" ng-model-options='{ debounce: 750 }' autofocus ng-change="ChangedTitleSearch()" type="text" class="form-control" placeholder="Title Contains...">
+
+                        <span class="input-group-btn">
+                            <button ng-click="GetTitleBySubstring()" class="btn btn-info" type="button">Go!</button>
+                        </span>
+                    </div><!-- /input-group -->
+                </th>
+            </tr>
+
             <tr>
                 <th>
                     <div sort by="sortType" reverse="sortReverse" order="'TITLE'">Title</div>
@@ -86,3 +100,10 @@
         </tbody>
     </table>
 </div>
+
+<script>
+    $(document).ready(function () {
+        $("table").stickyTableHeaders({ fixedOffset: $('.fixedheader') });
+
+    });
+</script>

@@ -84,6 +84,7 @@
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery.js" />
+    <Content Include="Scripts\jquery.stickytableheaders.js" />
     <Content Include="Style\CSS\bootstrap.css" />
     <Content Include="Style\CSS\common.css" />
     <Content Include="Style\CSS\style.css" />
