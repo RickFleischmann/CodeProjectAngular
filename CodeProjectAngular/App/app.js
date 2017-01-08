@@ -7,7 +7,7 @@
 
     appVar.config(['$stateProvider',
         function ($stateProvider) {
-            // our routers, self explanatory
+            // our routers
             $stateProvider
                 .state('home', {
                     url: '/',

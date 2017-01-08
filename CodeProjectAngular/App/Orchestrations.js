@@ -57,6 +57,10 @@
             });
         }
 
+        $scope.gomodal = function () {
+            //onsole.log('went');
+            $('#myModal').modal();
+        }
 
     }]);
 

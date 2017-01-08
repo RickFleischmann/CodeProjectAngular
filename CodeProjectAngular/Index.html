@@ -1,4 +1,5 @@
 ﻿<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <html ng-app="app">
 <head>
     <title>VG music catalog</title>
@@ -8,6 +9,7 @@
     <script src="./Scripts/angular.js"></script>
     <script src="./Scripts/angular-ui-router.js"></script>
     <script src="./Scripts/jquery.stickytableheaders.js"></script>
+    <script src="./Scripts/bootstrap.js"></script>
 
     <script src="./App/app.js"></script>
     <script src="./App/controllers.js"></script>
@@ -25,36 +27,15 @@
             padding-left: 2%;
             padding-right: 2%;
         }
+
+ 
     </style>
 
 </head>
 <body>
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <ul class="nav navbar-nav">
-                <li>
-                    <a href="#/">
-                        Home
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#/orchestrations">
-                        Orchestrations
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <div class="container-fluid">
-        <!--
-            Note the below ui-view attribute, not the id.
-            The content of the div will be replaces by
-            the view that is stated inside app.js
-        -->
-        <div id="ui-view" ui-view>
-        </div>
+   
+    <div class="container">
+         <div id="ui-view" ui-view></div>
     </div>
 </body>
 </html>
