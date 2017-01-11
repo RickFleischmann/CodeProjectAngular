@@ -34,13 +34,15 @@ namespace CodeProjectAngular.WebAPI.Controllers
         }
 
         // GET api/values
-        public IEnumerable<Orchestration> Get(string titleContains)
+        public IEnumerable<Orchestration> Get(string titleContainsParam, string compLyrContainsParam)
         {
 
-            var titleParameter = new SqlParameter("@TITLEFILTER", titleContains);
+ 
+            var titleParameter = new SqlParameter("@TITLEFILTER", titleContainsParam);
+            var compLyrParameter = new SqlParameter("@COMPLYRFILTER", compLyrContainsParam);
 
             var model = _db.Database
-                .SqlQuery<Orchestration>("GetOrchestrations @TITLEFILTER", titleParameter)
+                .SqlQuery<Orchestration>("GetOrchestrations @TITLEFILTER, @COMPLYRFILTER", titleParameter, compLyrParameter)
                 .ToList();
 
             return model;

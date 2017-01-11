@@ -21,6 +21,12 @@ namespace CodeProjectAngular.WebAPI
                 defaults: new { id = RouteParameter.Optional }
             );
 
+            config.Routes.MapHttpRoute(
+                name: "TwoApi",
+                routeTemplate: "api/{controller}/{titleContainsParam}/{compLyrContainsParam}",
+                defaults: new { titleContainsParam = RouteParameter.Optional, compLyrContainsParam = RouteParameter.Optional }
+            );
+
             config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
 
             // code above will not return a strict "application/json" response, if you want a strict "application/json" response you can use the below.  

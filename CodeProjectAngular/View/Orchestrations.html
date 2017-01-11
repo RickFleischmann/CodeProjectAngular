@@ -14,8 +14,9 @@
                     <div class="input-group col-lg-6">
                         <input ng-model="titleContains" ng-model-options='{ debounce: 750 }' autofocus ng-change="ChangedTitleSearch()" type="text" class="form-control" placeholder="Title Contains...">
                         <span class="input-group-btn">
-                            <button ng-click="gomodal()" class="btn btn-info" type="button">Filter</button>
+                            <button ng-click="gomodal()" class="btn btn-info" type="button">Filter</i></button>
                         </span>
+                        Rows: {{orchestrations.length}}
                     </div>
 
                 </th>
@@ -108,7 +109,7 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myModalLabel">Filter criteria</h4>
-                </div> <button type="button" class="btn btn-default" data-dismiss="modal">Go</button></div>
+                </div> <button type="button" class="btn btn-default" ng-click="GetTitleBySubstring()" data-dismiss ="modal">Go</i></button></div>
             </div>
             <div class="modal-body">
                 <div id="scroll-wrap">
