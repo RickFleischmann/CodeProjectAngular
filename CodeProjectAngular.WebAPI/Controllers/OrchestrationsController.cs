@@ -1,5 +1,4 @@
-﻿using CodeProjectAngular.WebAPI.DTO;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -14,42 +13,42 @@ namespace CodeProjectAngular.WebAPI.Controllers
         CatalogDbEntities _db = new CatalogDbEntities();
 
         // GET api/values
-        //public IEnumerable<Orchestration> Get()
-        //{
-        //    var model = _db.Orchestrations.ToList();
-        //    return model;
-        //}
-
-         // GET api/values
-        public IEnumerable<Orchestration> Get() { 
-        
-            var titleParameter = new SqlParameter("@TITLEFILTER","old");
-
-            var model = _db.Database
-                .SqlQuery<Orchestration>("GetOrchestrations @TITLEFILTER", titleParameter)
-                .ToList();
-
-            return model;
-
-        }
-
-        // GET api/values
-        public IEnumerable<Orchestration> Get(string titleContainsParam, string compLyrContainsParam)
+        public IEnumerable<Orchestration> Get(string id)
         {
 
- 
+            string titleContainsParam = "{}";
+            string compLyrContainsParam = "{}";
+            
+            var idParameter = new SqlParameter("@IDFILTER", id);
             var titleParameter = new SqlParameter("@TITLEFILTER", titleContainsParam);
             var compLyrParameter = new SqlParameter("@COMPLYRFILTER", compLyrContainsParam);
 
             var model = _db.Database
-                .SqlQuery<Orchestration>("GetOrchestrations @TITLEFILTER, @COMPLYRFILTER", titleParameter, compLyrParameter)
+                .SqlQuery<Orchestration>("GetOrchestrations @IDFILTER, @TITLEFILTER, @COMPLYRFILTER", idParameter, titleParameter, compLyrParameter)
+                .ToList();
+
+            return model;
+
+        }
+        
+        
+        // GET api/values
+        public IEnumerable<Orchestration> Get(string idParam, string titleContainsParam = "{}", string compLyrContainsParam = "{}")
+        {
+
+            var idParameter = new SqlParameter("@IDFILTER", idParam);
+            var titleParameter = new SqlParameter("@TITLEFILTER", titleContainsParam);
+            var compLyrParameter = new SqlParameter("@COMPLYRFILTER", compLyrContainsParam);
+
+            var model = _db.Database
+                .SqlQuery<Orchestration>("GetOrchestrations @IDFILTER, @TITLEFILTER, @COMPLYRFILTER",idParameter, titleParameter, compLyrParameter)
                 .ToList();
 
             return model;
 
         }
 
-
+        
         protected override void Dispose(bool disposing)
         {
             if (_db != null){

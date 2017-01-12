@@ -23,8 +23,8 @@ namespace CodeProjectAngular.WebAPI
 
             config.Routes.MapHttpRoute(
                 name: "TwoApi",
-                routeTemplate: "api/{controller}/{titleContainsParam}/{compLyrContainsParam}",
-                defaults: new { titleContainsParam = RouteParameter.Optional, compLyrContainsParam = RouteParameter.Optional }
+                routeTemplate: "api/{controller}/{idParam}/{titleContainsParam}/{compLyrContainsParam}",
+                defaults: new { idParam = RouteParameter.Optional, titleContainsParam = RouteParameter.Optional, compLyrContainsParam = RouteParameter.Optional }
             );
 
             config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));

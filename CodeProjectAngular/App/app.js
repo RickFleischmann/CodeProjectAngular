@@ -14,15 +14,15 @@
                     templateUrl: './View/Home.html',
                     controller: 'HomeController'
                 })
-                .state('movies', {
-                    url: '/movies',
-                    templateUrl: './View/Movies.html',
-                    controller: 'MoviesController'
+                .state('orchestrationbrowse', {
+                   url: '/OrchestrationBrowse',
+                   templateUrl: './View/OrchestrationBrowse.html',
+                   controller: 'OrchestrationBrowseController'
                 })
-               .state('orchestrations', {
-                   url: '/orchestrations',
-                   templateUrl: './View/Orchestrations.html',
-                   controller: 'OrchestrationsController'
+               .state('orchestrationdetail', {
+                   url: '/OrchestrationDetail',
+                   templateUrl: './View/OrchestrationDetail.html',
+                   controller: 'OrchestrationDetailController'
                })
                 .state('otherwise', {
                     url: '*path',

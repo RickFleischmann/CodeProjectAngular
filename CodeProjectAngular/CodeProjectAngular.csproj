@@ -66,7 +66,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App\baseDirective.js" />
-    <Content Include="App\orchestrations.js" />
+    <Content Include="App\OrchestrationDetail.js" />
+    <Content Include="App\OrchestrationBrowse.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -103,8 +104,9 @@
     <Content Include="View\Error.html" />
     <Content Include="View\FilterPage.html" />
     <Content Include="View\Home.html" />
-    <Content Include="View\Orchestrations.html" />
-    <Content Include="View\Movies.html" />
+    <Content Include="View\OrchestrationBrowse.html" />
+    <Content Include="View\OrchestrationDetail.html" />
+    <Content Include="View\OrchestrationsFilter.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

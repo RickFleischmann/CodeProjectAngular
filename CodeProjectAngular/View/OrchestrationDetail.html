@@ -1,0 +1,51 @@
+﻿<style>
+    .btn-default.active, .btn-default.active:hover {
+        background-color: #5BC0DE;
+        color: #fff;
+    }
+
+    .help-tag, .help-tag > a, .help-tag > a:hover {
+        color: #d2691e;
+        text-decoration: none;
+        font-weight: normal;
+        font-size: 12px;
+    }
+
+    .help-button-replace {
+        height: 34px;
+    }
+
+    .scrollTable {
+        overflow-y: scroll;
+        overflow-x: hidden;
+        height: 250px;
+        border: solid 1px #E8E8E8;
+    }
+
+    .typeahead-pull-right .dropdown-menu {
+        left: auto !important;
+        right: 0px;
+        width: 502px;
+    }
+
+        .typeahead-pull-right .dropdown-menu > .active > a .smallgrey {
+            color: #ffffff !important;
+        }
+</style>
+
+<div ng-controller="OrchestrationDetailController">
+
+    <form name="frmOrchestrationDetail" autocomplete="off" novalidate class="container-fluid form-condensed">
+
+        <div class="row" style="padding-top:20px;padding-bottom:20px;">
+            <div class="col-xs-12 col-md-4">
+                <div class="form-group">
+                    <label for="title">Title:</label>
+                    <input type="text" name="title" id="title" class="form-control" ng-model="TITLE" >
+                </div>
+            </div>
+
+
+    </form>
+
+</div>
