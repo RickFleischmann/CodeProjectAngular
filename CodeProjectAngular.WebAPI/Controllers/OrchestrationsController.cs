@@ -33,15 +33,46 @@ namespace CodeProjectAngular.WebAPI.Controllers
         
         
         // GET api/values
-        public IEnumerable<Orchestration> Get(string idParam, string titleContainsParam = "{}", string compLyrContainsParam = "{}")
+        public IEnumerable<Orchestration> Get(
+            string TITLE, 
+            string COMP_LYR,
+            string ARRANGER,
+            string CATNUM,
+            string PUBLISHER,
+            string TITLEYEAR,
+            string ARRANGYEAR,
+            string ARRANGTYPE,
+            string KEY,
+            string PRODTYPE,
+            string PRODTITLE,
+            string ID,
+            string NOTES,
+            string PLATE_NUMBER,
+            string PCN,
+            string LARGE
+            )
         {
 
-            var idParameter = new SqlParameter("@IDFILTER", idParam);
-            var titleParameter = new SqlParameter("@TITLEFILTER", titleContainsParam);
-            var compLyrParameter = new SqlParameter("@COMPLYRFILTER", compLyrContainsParam);
-
+ 
             var model = _db.Database
-                .SqlQuery<Orchestration>("GetOrchestrations @IDFILTER, @TITLEFILTER, @COMPLYRFILTER",idParameter, titleParameter, compLyrParameter)
+                .SqlQuery<Orchestration>("GetOrchestrations @fTITLE, @fCOMP_LYR, @fARRANGER,@fCATNUM ,@fPUBLISHER ,@fTITLEYEAR ,@fARRANGYEAR, @fARRANGTYPE ,@fKEY ,@fPRODTYPE ,@fPRODTITLE ,@fID ,@fNOTES ,@fPLATE_NUMBER ,@fPCN ,@fLARGE ",
+                new SqlParameter("@fTITLE", TITLE),
+                new SqlParameter("@fCOMP_LYR",COMP_LYR),
+                new SqlParameter("@fARRANGER",ARRANGER),
+                new SqlParameter("@fCATNUM",CATNUM),
+                new SqlParameter("@fPUBLISHER",PUBLISHER),
+                new SqlParameter("@fTITLEYEAR",TITLEYEAR),
+                new SqlParameter("@fARRANGYEAR",ARRANGYEAR),
+                new SqlParameter("@fARRANGTYPE", ARRANGTYPE),
+                new SqlParameter("@fKEY",KEY),
+                new SqlParameter("@fPRODTYPE",PRODTYPE),
+                new SqlParameter("@fPRODTITLE",PRODTITLE),
+                new SqlParameter("@fID",ID),
+                new SqlParameter("@fNOTES",NOTES),
+                new SqlParameter("@fPLATE_NUMBER",PLATE_NUMBER),
+                new SqlParameter("@fPCN",PCN),
+                new SqlParameter("@fLARGE",LARGE)
+                )
                 .ToList();
 
             return model;

@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App\baseDirective.js" />
+    <Content Include="App\baseService.js" />
     <Content Include="App\OrchestrationDetail.js" />
     <Content Include="App\OrchestrationBrowse.js" />
     <Content Include="Content\bootstrap-theme.css" />

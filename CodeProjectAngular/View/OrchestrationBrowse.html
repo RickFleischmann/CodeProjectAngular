@@ -7,13 +7,14 @@
 </style>
 
 
+
 <div class="row">
     <table class="table table-hover table-condensed tableDarkHeader">
         <thead>
             <tr>
                 <th colspan="6">
                     <div class="input-group col-lg-6">
-                        <input ng-model="titleContains" ng-model-options='{ debounce: 750 }' autofocus ng-change="ChangedTitleSearch()" type="text" class="form-control" placeholder="Title Contains...">
+                        <input ng-model="filterValues.TITLE" ng-model-options='{ debounce: 750 }' autofocus ng-change="ChangedTitleSearch()" type="text" class="form-control" placeholder="Title Contains...">
                         <span class="input-group-btn">
                             <button ng-click="FilterModal()" class="btn btn-info" type="button">Filter</i></button>
                         </span>
@@ -96,8 +97,6 @@
     </table>
 </div>
 
-<!--<div ng-include="'/View/OrchestrationsFilter.html'"></div>-->
-
 <script>
     $(document).ready(function () {
         $("table").stickyTableHeaders;
@@ -117,55 +116,58 @@
                     <div id="scroll-wrap">
                         <div class="form-group">
                             <label for="Title">Title contains:</label>
-                            <input type="text" name="Title" id="Title" class="form-control" ng-model="titleContains" ng-required="false" ng-minlength="1" ng-maxlength="100">
+                            <input type="text" name="Title" id="Title" class="form-control" ng-model="filterValues.TITLE" ng-required="false" ng-minlength="1" ng-maxlength="100">
 
                             <label for="complyr">Composer/Lyricist contains:</label>
-                            <input type="text" name="complyr" id="complyr" class="form-control" ng-model="compLyrContains" ng-required="false" ng-minlength="1" ng-maxlength="100">
+                            <input type="text" name="complyr" id="complyr" class="form-control" ng-model="filterValues.COMP_LYR" ng-required="false" ng-minlength="1" ng-maxlength="100">
 
                             <label for="arr">Arranger contains:</label>
-                            <input type="text" name="arr" id="arr" class="form-control" ng-model="arrangerContains" ng-required="false" ng-minlength="1" ng-maxlength="100">
+                            <input type="text" name="arr" id="arr" class="form-control" ng-model="filterValues.ARRANGER" ng-required="false" ng-minlength="1" ng-maxlength="100">
 
                             <label for="arr">Catalog # contains:</label>
-                            <input type="text" name="catnum" id="catnum" class="form-control" ng-model="catnumContains" ng-required="false" ng-minlength="1" ng-maxlength="100">
+                            <input type="text" name="catnum" id="catnum" class="form-control" ng-model="filterValues.CATNUM" ng-required="false" ng-minlength="1" ng-maxlength="100">
 
                             <label for="pub">Publisher contains:</label>
-                            <input type="text" name="pub" id="pub" class="form-control" ng-model="publisherContains" ng-required="false" ng-minlength="1" ng-maxlength="100">
+                            <input type="text" name="pub" id="pub" class="form-control" ng-model="filterValues.PUBLISHER" ng-required="false" ng-minlength="1" ng-maxlength="100">
 
                             <label for="tityear">Title Year contains:</label>
-                            <input type="text" name="tityear" id="tityear" class="form-control" ng-model="titleYearContains" ng-required="false" ng-minlength="1" ng-maxlength="100">
+                            <input type="text" name="tityear" id="tityear" class="form-control" ng-model="filterValues.TITLEYEAR" ng-required="false" ng-minlength="1" ng-maxlength="100">
 
                             <label for="arryear">Arrangement Year contains:</label>
-                            <input type="text" name="arryear" id="arryear" class="form-control" ng-model="arrangeYearContains" ng-required="false" ng-minlength="1" ng-maxlength="100">
+                            <input type="text" name="arryear" id="arryear" class="form-control" ng-model="filterValues.ARRANGYEAR" ng-required="false" ng-minlength="1" ng-maxlength="100">
 
                             <label for="arrtype">Arrangement Type contains:</label>
-                            <input type="text" name="arrtype" id="arrtype" class="form-control" ng-model="arrangeTypeContains" ng-required="false" ng-minlength="1" ng-maxlength="100">
+                            <input type="text" name="arrtype" id="arrtype" class="form-control" ng-model="filterValues.ARRANGTYPE" ng-required="false" ng-minlength="1" ng-maxlength="100">
 
                             <label for="key">Key contains:</label>
-                            <input type="text" name="key" id="key" class="form-control" ng-model="keyContains" ng-required="false" ng-minlength="1" ng-maxlength="100">
+                            <input type="text" name="key" id="key" class="form-control" ng-model="filterValues.KEY" ng-required="false" ng-minlength="1" ng-maxlength="100">
 
                             <label for="prodtype">Production Type contains:</label>
-                            <input type="text" name="prodtype" id="prodtype" class="form-control" ng-model="prodTypeContains" ng-required="false" ng-minlength="1" ng-maxlength="100">
+                            <input type="text" name="prodtype" id="prodtype" class="form-control" ng-model="filterValues.PRODTYPE" ng-required="false" ng-minlength="1" ng-maxlength="100">
 
                             <label for="prodtitle">Production Title contains:</label>
-                            <input type="text" name="prodtitle" id="prodtitle" class="form-control" ng-model="prodTitleContains" ng-required="false" ng-minlength="1" ng-maxlength="100">
+                            <input type="text" name="prodtitle" id="prodtitle" class="form-control" ng-model="filterValues.PRODTITLE" ng-required="false" ng-minlength="1" ng-maxlength="100">
 
                             <label for="id">Id contains:</label>
-                            <input type="text" name="id" id="id" class="form-control" ng-model="idContains" ng-required="false" ng-minlength="1" ng-maxlength="100">
+                            <input type="text" name="id" id="id" class="form-control" ng-model="filterValues.ID" ng-required="false" ng-minlength="1" ng-maxlength="100">
 
-                            <label for="id">Notes contains:</label>
-                            <input type="text" name="notes" id="notes" class="form-control" ng-model="notesContains" ng-required="false" ng-minlength="1" ng-maxlength="100">
+                            <label for="id">Notes contain:</label>
+                            <input type="text" name="notes" id="notes" class="form-control" ng-model="filterValues.NOTES" ng-required="false" ng-minlength="1" ng-maxlength="100">
 
                             <label for="platenum">Plate number contains:</label>
-                            <input type="text" name="platenum" id="platenum" class="form-control" ng-model="plateNumContains" ng-required="false" ng-minlength="1" ng-maxlength="100">
+                            <input type="text" name="platenum" id="platenum" class="form-control" ng-model="filterValues.PLATE_NUMBER" ng-required="false" ng-minlength="1" ng-maxlength="100">
 
                             <label for="pubcatnum">Public catalog number contains:</label>
-                            <input type="text" name="pubcatnum" id="pubcatnum" class="form-control" ng-model="pubCatNumContains" ng-required="false" ng-minlength="1" ng-maxlength="100">
+                            <input type="text" name="pubcatnum" id="pubcatnum" class="form-control" ng-model="filterValues.PCN" ng-required="false" ng-minlength="1" ng-maxlength="100">
 
-                            <label>
-                                Large: <input type="checkbox" ng-init="'NO'" ng-model="isLarge" ng-true-value="'YES'" ng-false-value="'NO'">
-                            </label>
+                            <br/>
 
- 
+                            <label for="Large:">Large:</label>
+                            <select name="largeSelect" ng-model="filterValues.LARGE">
+                                 <option value="NO">NO</option>
+                                <option value="YES">YES</option>
+                            </select><br>
+
                         </div>
 
                     </div>
@@ -183,42 +185,81 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="DetailModalLabel">{{detailData[0].TITLE}}</h4>
+                <h4 class="modal-title" id="DetailModalLabel">{{detailData.TITLE}}</h4>
                 <button type="button" class="btn btn-default col-md-offset-1" data-dismiss="modal">Return</i></button>
                 <div class="modal-body">
                     <div id="scroll-wrap">
-                        <div class="form-group">
-                            <label for="Title">Arrangers:</label>
-                            <input type="text" name="arr1" id="arr1" class="form-control" ng-model="detailData[0].ARRANGERS1" ng-required="false" ng-minlength="1" ng-maxlength="100">
-                            <input type="text" name="arr1" id="arr1" class="form-control" ng-model="detailData[0].ARRANGERS2" ng-required="false" ng-minlength="1" ng-maxlength="100">
-                        </div>
-                        <div class="form-group">
-                            <label for="Title">Composers:</label>
-                            <input type="text" name="comp1" id="comp1" class="form-control" ng-model="detailData[0].COMPOSERS1" ng-required="false" ng-minlength="1" ng-maxlength="100">
-                            <input type="text" name="comp2" id="comp2" class="form-control" ng-model="detailData[0].COMPOSERS2" ng-required="false" ng-minlength="1" ng-maxlength="100">
-                            <input type="text" name="comp3" id="comp3" class="form-control" ng-model="detailData[0].COMPOSERS3" ng-required="false" ng-minlength="1" ng-maxlength="100">
-                            <input type="text" name="comp4" id="comp4" class="form-control" ng-model="detailData[0].COMPOSERS4" ng-required="false" ng-minlength="1" ng-maxlength="100">
-                        </div>
-                        <div class="form-group">
-                            <label for="Title">Arrangement Type:</label>
-                            <input type="text" name="arrtype" id="arrtype" class="form-control" ng-model="detailData[0].ARRANGTYPE" ng-required="false" ng-minlength="1" ng-maxlength="100">
-                        </div>
-                        <div class="form-group">
-                            <label for="Title">Key:</label>
-                            <input type="text" name="key" id="key" class="form-control" ng-model="detailData[0].KEY" ng-required="false" ng-minlength="1" ng-maxlength="100">
-                        </div>
-                        <div class="form-group">
-                            <label for="Title">Year/Arr.Year:</label>
-                            <input type="text" name="year" id="key" class="form-control" ng-model="detailData[0].TITLEYEAR" ng-required="false" ng-minlength="1" ng-maxlength="100">
-                            <input type="text" name="arrangyear" id="key" class="form-control" ng-model="detailData[0].ARRANGYEAR" ng-required="false" ng-minlength="1" ng-maxlength="100">
-                        </div>
-                        <div class="form-group">
-                            <label for="Title">Lyricists:</label>
-                            <input type="text" name="lyr1" id="lyr1" class="form-control" ng-model="detailData[0].LYRICISTS1" ng-required="false" ng-minlength="1" ng-maxlength="100">
-                            <input type="text" name="lyr1" id="lyr1" class="form-control" ng-model="detailData[0].LYRICISTS2" ng-required="false" ng-minlength="1" ng-maxlength="100">
-                            <input type="text" name="lyr1" id="lyr1" class="form-control" ng-model="detailData[0].LYRICISTS3" ng-required="false" ng-minlength="1" ng-maxlength="100">
-                            <input type="text" name="lyr1" id="lyr1" class="form-control" ng-model="detailData[0].LYRICISTS4" ng-required="false" ng-minlength="1" ng-maxlength="100">
-                        </div>
+                        <div class="text-primary">Arrangers:</div>
+                        <div ng-show="detailData.ARRANGERS1">{{detailData.ARRANGERS1}}</div>
+                        <div ng-show="detailData.ARRANGERS2">{{detailData.ARRANGERS2}}</div>
+                        <br />
+
+                        <div class="text-primary">Composers:</div>
+                        <div ng-show="detailData.COMPOSERS1">{{detailData.COMPOSERS1}}</div>
+                        <div ng-show="detailData.COMPOSERS2">{{detailData.COMPOSERS2}}</div>
+                        <div ng-show="detailData.COMPOSERS3">{{detailData.COMPOSERS3}}</div>
+                        <div ng-show="detailData.COMPOSERS4">{{detailData.COMPOSERS4}}</div>
+                        <br />
+
+                        <div class="text-primary">Arrangement Type:</div>
+                        <div ng-show="detailData.ARRANGTYPE">{{detailData.ARRANGTYPE}}</div>
+                        <br />
+
+                        <div class="text-primary">Key:</div>
+                        <div ng-show="detailData.KEY">{{detailData.KEY}}</div>
+                        <br />
+
+                        <div class="text-primary">Title Year:</div>
+                        <div ng-show="detailData.TITLEYEAR">{{detailData.TITLEYEAR}}</div>
+                        <br />
+
+                        <div class="text-primary">Arrangement Year:</div>
+                        <div ng-show="detailData.ARRANGYEAR">{{detailData.ARRANGYEAR}}</div>
+                        <br />
+
+                        <div class="text-primary">Lyricists:</div>
+                        <div ng-show="detailData.LYRICISTS1">{{detailData.LYRICISTS1}}</div>
+                        <div ng-show="detailData.LYRICISTS2">{{detailData.LYRICISTS2}}</div>
+                        <div ng-show="detailData.LYRICISTS3">{{detailData.LYRICISTS3}}</div>
+                        <div ng-show="detailData.LYRICISTS4">{{detailData.LYRICISTS4}}</div>
+                        <br />
+
+                        <div class="text-primary">Plate Number:</div>
+                        <div ng-show="detailData.PLATE_NUMBER">{{detailData.PLATE_NUMBER}}</div>
+                        <br />
+
+                        <div class="text-primary">Public Catalog Number:</div>
+                        <div ng-show="detailData.PCN">{{detailData.PCN}}</div>
+                        <br />
+
+                        <div class="text-primary">Catalog Number:</div>
+                        <div ng-show="detailData.CATNUM">{{detailData.CATNUM}}</div>
+                        <br />
+
+                        <div class="text-primary">Large:</div>
+                        <div ng-show="detailData.LARGE">{{detailData.LARGE}}</div>
+                        <br />
+
+                        <div class="text-primary">Other Collections (ID #'S):</div>
+                        <div ng-show="detailData.ID">{{detailData.ID}}</div>
+                        <br />
+
+                        <div class="text-primary">Publisher:</div>
+                        <div ng-show="detailData.PUBLISHER">{{detailData.PUBLISHER}}</div>
+                        <br />
+
+                        <div class="text-primary">Production Source:</div>
+                        <div ng-show="detailData.PRODTYPE">{{detailData.PRODTYPE}}</div>
+                        <br />
+
+                        <div class="text-primary">Production Title:</div>
+                        <div ng-show="detailData.PRODTITLE">{{detailData.PRODTITLE}}</div>
+                        <br />
+
+                        <div class="text-primary">Notes:</div>
+                        <div ng-show="detailData.NOTES1">{{detailData.NOTES1}}</div>
+                        <div ng-show="detailData.NOTES2">{{detailData.NOTES2}}</div>
+                        <br />
                     </div>
                 </div>
                 <button type="button" class="btn btn-default col-md-offset-1" data-dismiss="modal">Return</i></button>
