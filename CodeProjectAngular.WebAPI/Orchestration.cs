@@ -43,5 +43,7 @@ namespace CodeProjectAngular.WebAPI
         public Nullable<bool> NewRec { get; set; }
         public string PCN { get; set; }
         public string ID { get; set; }
+        public Nullable<int> TOTAL_ROWS { get; set; }
+        public string SORT_BY { get; set; }
     }
 }

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="CatalogDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="CatalogDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Orchestrations">
           <Key>
             <PropertyRef Name="ID_JAZZ" />
@@ -38,6 +38,8 @@
           <Property Name="NewRec" Type="bit" />
           <Property Name="PCN" Type="nvarchar" MaxLength="20" />
           <Property Name="ID" Type="nvarchar" MaxLength="100" />
+          <Property Name="TOTAL_ROWS" Type="int" />
+          <Property Name="SORT_BY" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="RestaurantReviews">
           <Key>
@@ -62,8 +64,7 @@
           <EntitySet Name="RestaurantReviews" EntityType="Self.RestaurantReviews" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Restaurants" EntityType="Self.Restaurants" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CatalogDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -100,6 +101,8 @@
           <Property Name="NewRec" Type="Boolean" />
           <Property Name="PCN" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="ID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TOTAL_ROWS" Type="Int32" />
+          <Property Name="SORT_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="RestaurantReview">
           <Key>
@@ -133,6 +136,8 @@
           <EntitySetMapping Name="Orchestrations">
             <EntityTypeMapping TypeName="CatalogDbModel.Orchestration">
               <MappingFragment StoreEntitySet="Orchestrations">
+                <ScalarProperty Name="SORT_BY" ColumnName="SORT_BY" />
+                <ScalarProperty Name="TOTAL_ROWS" ColumnName="TOTAL_ROWS" />
                 <ScalarProperty Name="TITLE" ColumnName="TITLE" />
                 <ScalarProperty Name="CATNUM" ColumnName="CATNUM" />
                 <ScalarProperty Name="ARRANGERS1" ColumnName="ARRANGERS1" />
