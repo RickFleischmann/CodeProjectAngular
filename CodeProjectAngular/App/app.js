@@ -19,10 +19,10 @@
                    templateUrl: './View/OrchestrationBrowse.html',
                    controller: 'OrchestrationBrowseController'
                 })
-               .state('orchestrationdetail', {
-                   url: '/OrchestrationDetail',
-                   templateUrl: './View/OrchestrationDetail.html',
-                   controller: 'OrchestrationDetailController'
+               .state('sheetmusbrowse', {
+                   url: '/SheetMusBrowse',
+                   templateUrl: './View/SheetMusBrowse.html',
+                   controller: 'SheetMusBrowseController'
                })
                 .state('otherwise', {
                     url: '*path',

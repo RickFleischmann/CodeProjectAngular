@@ -41,28 +41,46 @@
           <Property Name="TOTAL_ROWS" Type="int" />
           <Property Name="SORT_BY" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <EntityType Name="RestaurantReviews">
+        <EntityType Name="SheetMus">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="ID_SHEETMUS" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Rating" Type="int" />
-          <Property Name="Body" Type="varchar" MaxLength="1000" />
-          <Property Name="RestaurantId" Type="int" />
-        </EntityType>
-        <EntityType Name="Restaurants">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="1000" />
-          <Property Name="City" Type="varchar" MaxLength="1000" />
-          <Property Name="Country" Type="varchar" MaxLength="1000" />
+          <Property Name="TITLE" Type="nvarchar" MaxLength="110" />
+          <Property Name="CATNUM" Type="nvarchar" MaxLength="6" />
+          <Property Name="COMPOSERS1" Type="nvarchar" MaxLength="70" />
+          <Property Name="LYRICISTS1" Type="nvarchar" MaxLength="70" />
+          <Property Name="PUBLISHER" Type="nvarchar" MaxLength="100" />
+          <Property Name="COMPOSERS2" Type="nvarchar" MaxLength="70" />
+          <Property Name="COMPOSERS3" Type="nvarchar" MaxLength="70" />
+          <Property Name="COMPOSERS4" Type="nvarchar" MaxLength="70" />
+          <Property Name="LYRICISTS2" Type="nvarchar" MaxLength="70" />
+          <Property Name="LYRICISTS3" Type="nvarchar" MaxLength="70" />
+          <Property Name="LYRICISTS4" Type="nvarchar" MaxLength="70" />
+          <Property Name="PHOTO1" Type="nvarchar" MaxLength="100" />
+          <Property Name="PHOTO2" Type="nvarchar" MaxLength="100" />
+          <Property Name="PHOTO3" Type="nvarchar" MaxLength="100" />
+          <Property Name="PHOTO4" Type="nvarchar" MaxLength="100" />
+          <Property Name="TITLEYEAR" Type="nvarchar" MaxLength="4" />
+          <Property Name="PRODTYPE" Type="nvarchar" MaxLength="50" />
+          <Property Name="PRODTITLE" Type="nvarchar" MaxLength="60" />
+          <Property Name="ARRANGTYPE" Type="nvarchar" MaxLength="30" />
+          <Property Name="NOTES1" Type="nvarchar" MaxLength="150" />
+          <Property Name="NOTES2" Type="nvarchar" MaxLength="150" />
+          <Property Name="PLATE_NUMBER" Type="nvarchar" MaxLength="20" />
+          <Property Name="KEY" Type="nvarchar" MaxLength="15" />
+          <Property Name="ID_SHEETMUS" Type="int" Nullable="false" />
+          <Property Name="id_transfer" Type="int" />
+          <Property Name="PRINT" Type="bit" />
+          <Property Name="LARGE" Type="bit" />
+          <Property Name="NewRec" Type="bit" />
+          <Property Name="ARRANGYEAR" Type="nvarchar" MaxLength="4" />
+          <Property Name="PCN" Type="nvarchar" MaxLength="20" />
+          <Property Name="TOTAL_ROWS" Type="int" />
+          <Property Name="SORT_BY" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityContainer Name="CatalogDbModelStoreContainer">
           <EntitySet Name="Orchestrations" EntityType="Self.Orchestrations" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="RestaurantReviews" EntityType="Self.RestaurantReviews" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Restaurants" EntityType="Self.Restaurants" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SheetMus" EntityType="Self.SheetMus" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -104,29 +122,46 @@
           <Property Name="TOTAL_ROWS" Type="Int32" />
           <Property Name="SORT_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="RestaurantReview">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Rating" Type="Int32" />
-          <Property Name="Body" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
-          <Property Name="RestaurantId" Type="Int32" />
-        </EntityType>
-        <EntityType Name="Restaurant">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
-          <Property Name="City" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
-          <Property Name="Country" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityContainer Name="CatalogDbEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Orchestrations" EntityType="Self.Orchestration" />
-          <EntitySet Name="RestaurantReviews" EntityType="Self.RestaurantReview" />
-          <EntitySet Name="Restaurants" EntityType="Self.Restaurant" />
+          <EntitySet Name="SheetMus1" EntityType="CatalogDbModel.SheetMus" />
         </EntityContainer>
+        <EntityType Name="SheetMus">
+          <Key>
+            <PropertyRef Name="ID_SHEETMUS" />
+          </Key>
+          <Property Name="TITLE" Type="String" MaxLength="110" FixedLength="false" Unicode="true" />
+          <Property Name="CATNUM" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="COMPOSERS1" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="LYRICISTS1" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="PUBLISHER" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="COMPOSERS2" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="COMPOSERS3" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="COMPOSERS4" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="LYRICISTS2" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="LYRICISTS3" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="LYRICISTS4" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="PHOTO1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PHOTO2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PHOTO3" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PHOTO4" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PRODTYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PRODTITLE" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="ARRANGTYPE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="NOTES1" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="NOTES2" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="PLATE_NUMBER" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="KEY" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="ID_SHEETMUS" Type="Int32" Nullable="false" />
+          <Property Name="id_transfer" Type="Int32" />
+          <Property Name="PRINT" Type="Boolean" />
+          <Property Name="LARGE" Type="Boolean" />
+          <Property Name="NewRec" Type="Boolean" />
+          <Property Name="ARRANGYEAR" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="PCN" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="TOTAL_ROWS" Type="Int32" />
+          <Property Name="SORT_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -170,23 +205,40 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="RestaurantReviews">
-            <EntityTypeMapping TypeName="CatalogDbModel.RestaurantReview">
-              <MappingFragment StoreEntitySet="RestaurantReviews">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Rating" ColumnName="Rating" />
-                <ScalarProperty Name="Body" ColumnName="Body" />
-                <ScalarProperty Name="RestaurantId" ColumnName="RestaurantId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Restaurants">
-            <EntityTypeMapping TypeName="CatalogDbModel.Restaurant">
-              <MappingFragment StoreEntitySet="Restaurants">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="City" ColumnName="City" />
-                <ScalarProperty Name="Country" ColumnName="Country" />
+          <EntitySetMapping Name="SheetMus1">
+            <EntityTypeMapping TypeName="CatalogDbModel.SheetMus">
+              <MappingFragment StoreEntitySet="SheetMus">
+                <ScalarProperty Name="SORT_BY" ColumnName="SORT_BY" />
+                <ScalarProperty Name="TOTAL_ROWS" ColumnName="TOTAL_ROWS" />
+                <ScalarProperty Name="PCN" ColumnName="PCN" />
+                <ScalarProperty Name="ARRANGYEAR" ColumnName="ARRANGYEAR" />
+                <ScalarProperty Name="NewRec" ColumnName="NewRec" />
+                <ScalarProperty Name="LARGE" ColumnName="LARGE" />
+                <ScalarProperty Name="PRINT" ColumnName="PRINT" />
+                <ScalarProperty Name="id_transfer" ColumnName="id_transfer" />
+                <ScalarProperty Name="ID_SHEETMUS" ColumnName="ID_SHEETMUS" />
+                <ScalarProperty Name="KEY" ColumnName="KEY" />
+                <ScalarProperty Name="PLATE_NUMBER" ColumnName="PLATE_NUMBER" />
+                <ScalarProperty Name="NOTES2" ColumnName="NOTES2" />
+                <ScalarProperty Name="NOTES1" ColumnName="NOTES1" />
+                <ScalarProperty Name="ARRANGTYPE" ColumnName="ARRANGTYPE" />
+                <ScalarProperty Name="PRODTITLE" ColumnName="PRODTITLE" />
+                <ScalarProperty Name="PRODTYPE" ColumnName="PRODTYPE" />
+                <ScalarProperty Name="PHOTO4" ColumnName="PHOTO4" />
+                <ScalarProperty Name="PHOTO3" ColumnName="PHOTO3" />
+                <ScalarProperty Name="PHOTO2" ColumnName="PHOTO2" />
+                <ScalarProperty Name="PHOTO1" ColumnName="PHOTO1" />
+                <ScalarProperty Name="LYRICISTS4" ColumnName="LYRICISTS4" />
+                <ScalarProperty Name="LYRICISTS3" ColumnName="LYRICISTS3" />
+                <ScalarProperty Name="LYRICISTS2" ColumnName="LYRICISTS2" />
+                <ScalarProperty Name="COMPOSERS4" ColumnName="COMPOSERS4" />
+                <ScalarProperty Name="COMPOSERS3" ColumnName="COMPOSERS3" />
+                <ScalarProperty Name="COMPOSERS2" ColumnName="COMPOSERS2" />
+                <ScalarProperty Name="PUBLISHER" ColumnName="PUBLISHER" />
+                <ScalarProperty Name="LYRICISTS1" ColumnName="LYRICISTS1" />
+                <ScalarProperty Name="COMPOSERS1" ColumnName="COMPOSERS1" />
+                <ScalarProperty Name="CATNUM" ColumnName="CATNUM" />
+                <ScalarProperty Name="TITLE" ColumnName="TITLE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

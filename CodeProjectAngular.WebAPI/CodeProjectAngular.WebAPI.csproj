@@ -173,6 +173,7 @@
       <DependentUpon>CatalogModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SheetMusController.cs" />
     <Compile Include="Controllers\OrchestrationsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -183,10 +184,7 @@
       <DependentUpon>CatalogModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Restaurant.cs">
-      <DependentUpon>CatalogModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="RestaurantReview.cs">
+    <Compile Include="SheetMus.cs">
       <DependentUpon>CatalogModel.tt</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -229,6 +227,7 @@
     </Content>
     <Content Include="CatalogModel.edmx.diagram">
       <DependentUpon>CatalogModel.edmx</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="CatalogModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

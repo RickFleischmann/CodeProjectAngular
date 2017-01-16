@@ -26,7 +26,6 @@ namespace CodeProjectAngular.WebAPI
         }
     
         public virtual DbSet<Orchestration> Orchestrations { get; set; }
-        public virtual DbSet<RestaurantReview> RestaurantReviews { get; set; }
-        public virtual DbSet<Restaurant> Restaurants { get; set; }
+        public virtual DbSet<SheetMus> SheetMus { get; set; }
     }
 }
