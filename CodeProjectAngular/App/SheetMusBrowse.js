@@ -41,37 +41,9 @@
 
         $scope.SORT_BY = 'TITLE'; // set the default sort type
         $scope.sortReverse = false;  // set the default sort order
- 
-        $scope.ClearFilter = function () {
-           angular.forEach($scope.filterValues, function (value, key) {
-                $scope.filterValues[key] = '';
-           });
-           $scope.SORT_BY = 'TITLE';
 
-         };
 
-        $scope.PrepForAPI = function () {
-            angular.forEach($scope.filterValues, function (value, key) {
-                //onsole.log(key + ':' + value);
-                if ($scope.filterValues[key] === '') {
-                    $scope.filterValues[key] = '{}';
-                }
-            });
-
-         };
-
-        $scope.PrepAfterAPI = function () {
-            angular.forEach($scope.filterValues, function (value, key) {
-                //onsole.log(key + ':' + value);
-                if ($scope.filterValues[key] === '{}') {
-                    $scope.filterValues[key] = '';
-                }
-            });
-         };
-
-        $scope.ClearFilter();
-
-        $scope.Requery = function () {
+        $scope.CheckQueryString = function () {
             console.log('query:');
             var queryString = '';
             angular.forEach($scope.filterValues, function (value, key) {
@@ -79,21 +51,69 @@
             });
 
             console.log('query: ' + queryString);
-
             if (queryString.length > 0) {
+                console.log("has filter");
+                $scope.FilterIsSet = true;
+            } else {
+                console.log("has no filter");
+                $scope.FilterIsSet = false;
+            }
+
+        }
+
+
+        $scope.ClearFilter = function () {
+            angular.forEach($scope.filterValues, function (value, key) {
+                $scope.filterValues[key] = '';
+            });
+
+            $scope.SORT_BY = 'TITLE';
+
+        };
+
+        $scope.ClearFilter();
+
+        $scope.PrepForAPI = function () {
+            angular.forEach($scope.filterValues, function (value, key) {
+                if ($scope.filterValues[key] === '') {
+                    $scope.filterValues[key] = '{}';
+                }
+            });
+
+        };
+
+        $scope.PrepAfterAPI = function () {
+            angular.forEach($scope.filterValues, function (value, key) {
+
+                if ($scope.filterValues[key] === '{}') {
+                    $scope.filterValues[key] = '';
+                }
+            });
+        };
+
+        $scope.Requery = function () {
+
+            $scope.CheckQueryString();
+
+            if ($scope.FilterIsSet == true) {
                 $scope.row_start = 1;
+                $scope.GetTitleBySubstring();
+            }
+            else {
+                $scope.row_start = 0;
                 $scope.GetTitleBySubstring();
             }
 
         };
 
         $scope.NextPage = function () {
-            console.log($scope.total_rows);
+
             $scope.row_start += 20;
             $scope.GetTitleBySubstring();
         };
 
         $scope.PreviousPage = function () {
+
             $scope.row_start -= 20;
             $scope.GetTitleBySubstring();
         };
@@ -107,16 +127,26 @@
         };
 
         $scope.ChangedTitleSearch = function () {
-
+            // if searching from title box, clear all other query terms
             $scope.lastTitleFilter = $scope.filterValues.TITLE;
             $scope.ClearFilter();
             $scope.filterValues.TITLE = $scope.lastTitleFilter;
 
-            if ($scope.filterValues.TITLE.length < 3) return;
+            //if ($scope.filterValues.TITLE.length < 3) return;
             $scope.GetTitleBySubstring();
         };
 
         $scope.GetTitleBySubstring = function () {
+
+            $scope.CheckQueryString();
+
+            if ($scope.FilterIsSet == false) {
+                $scope.SheetMus = {};
+                $scope.row_start = 0;
+                $scope.row_display_end = 0;
+                $scope.total_rows = 0;
+                return;
+            }
 
             // sets empty filter values to {}
             $scope.PrepForAPI();
