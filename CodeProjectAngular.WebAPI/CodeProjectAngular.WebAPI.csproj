@@ -157,6 +157,12 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Book.cs">
+      <DependentUpon>CatalogModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C78.cs">
+      <DependentUpon>CatalogModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="CatalogModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -173,9 +179,13 @@
       <DependentUpon>CatalogModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SolosController.cs" />
     <Compile Include="Controllers\SheetMusController.cs" />
     <Compile Include="Controllers\OrchestrationsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="FilmSongPerson.cs">
+      <DependentUpon>CatalogModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -183,8 +193,23 @@
     <Compile Include="Orchestration.cs">
       <DependentUpon>CatalogModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Pianorol.cs">
+      <DependentUpon>CatalogModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Prp.cs">
+      <DependentUpon>CatalogModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="SheetMus.cs">
+      <DependentUpon>CatalogModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Silent.cs">
+      <DependentUpon>CatalogModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Solo.cs">
+      <DependentUpon>CatalogModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Track.cs">
       <DependentUpon>CatalogModel.tt</DependentUpon>
     </Compile>
   </ItemGroup>

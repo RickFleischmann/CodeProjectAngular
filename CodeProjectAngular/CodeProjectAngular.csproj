@@ -67,6 +67,7 @@
   <ItemGroup>
     <Content Include="App\baseDirective.js" />
     <Content Include="App\baseService.js" />
+    <Content Include="App\SolosBrowse.js" />
     <Content Include="App\SheetMusBrowse.js" />
     <Content Include="App\OrchestrationBrowse.js" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -105,6 +106,7 @@
     <Content Include="View\Error.html" />
     <Content Include="View\FilterPage.html" />
     <Content Include="View\Home.html" />
+    <Content Include="View\SolosBrowse.html" />
     <Content Include="View\SheetMusBrowse.html" />
     <Content Include="View\OrchestrationBrowse.html" />
     <Content Include="View\OrchestrationsFilter.html" />

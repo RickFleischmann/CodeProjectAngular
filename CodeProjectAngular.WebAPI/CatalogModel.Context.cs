@@ -26,6 +26,14 @@ namespace CodeProjectAngular.WebAPI
         }
     
         public virtual DbSet<Orchestration> Orchestrations { get; set; }
-        public virtual DbSet<SheetMus> SheetMus { get; set; }
+        public virtual DbSet<SheetMus> SheetMus1 { get; set; }
+        public virtual DbSet<C78> C78 { get; set; }
+        public virtual DbSet<Book> Books { get; set; }
+        public virtual DbSet<FilmSongPerson> FilmSongPersons { get; set; }
+        public virtual DbSet<Pianorol> Pianorols { get; set; }
+        public virtual DbSet<Prp> Prps { get; set; }
+        public virtual DbSet<Silent> Silents { get; set; }
+        public virtual DbSet<Solo> Solos { get; set; }
+        public virtual DbSet<Track> Tracks { get; set; }
     }
 }

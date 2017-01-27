@@ -24,6 +24,11 @@
                    templateUrl: './View/SheetMusBrowse.html',
                    controller: 'SheetMusBrowseController'
                })
+              .state('solosbrowse', {
+                    url: '/SolosBrowse',
+                    templateUrl: './View/SolosBrowse.html',
+                    controller: 'SolosBrowseController'
+              })
                 .state('otherwise', {
                     url: '*path',
                     templateUrl: '/View/Home.html',
