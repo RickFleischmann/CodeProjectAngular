@@ -50,6 +50,7 @@ namespace CodeProjectAngular.WebAPI.Controllers
             string PLATE_NUMBER,
             string PCN,
             string LARGE,
+            string PICTURE,
             string ROW_START,
             string SORT_BY
             )
@@ -57,7 +58,7 @@ namespace CodeProjectAngular.WebAPI.Controllers
 
  
             var model = _db.Database
-                .SqlQuery<Orchestration>("GetOrchestrations @fTITLE, @fCOMP_LYR, @fARRANGER,@fCATNUM ,@fPUBLISHER ,@fTITLEYEAR ,@fARRANGYEAR, @fARRANGTYPE ,@fKEY ,@fPRODTYPE ,@fPRODTITLE ,@fID ,@fNOTES ,@fPLATE_NUMBER ,@fPCN ,@fLARGE, @fROW_START, @fSORT_BY ",
+                .SqlQuery<Orchestration>("GetOrchestrations @fTITLE, @fCOMP_LYR, @fARRANGER,@fCATNUM ,@fPUBLISHER ,@fTITLEYEAR ,@fARRANGYEAR, @fARRANGTYPE ,@fKEY ,@fPRODTYPE ,@fPRODTITLE ,@fID ,@fNOTES ,@fPLATE_NUMBER ,@fPCN ,@fLARGE, @fPICTURE, @fROW_START, @fSORT_BY ",
                 new SqlParameter("@fTITLE", TITLE),
                 new SqlParameter("@fCOMP_LYR",COMP_LYR),
                 new SqlParameter("@fARRANGER",ARRANGER),
@@ -74,6 +75,7 @@ namespace CodeProjectAngular.WebAPI.Controllers
                 new SqlParameter("@fPLATE_NUMBER",PLATE_NUMBER),
                 new SqlParameter("@fPCN",PCN),
                 new SqlParameter("@fLARGE",LARGE),
+                new SqlParameter("@fPICTURE", PICTURE),
                 new SqlParameter("@fROW_START",ROW_START),
                 new SqlParameter("@fSORT_BY", SORT_BY)
 

@@ -48,6 +48,7 @@
             </tr>
             <tr>
                 <th>Title</th>
+                <th>Image</th>
                 <th>Arranger1</th>
                 <th>Catalog #</th>
                 <th>Large</th>
@@ -64,6 +65,10 @@
                 <td>
                     <a href ng-click="DetailModal(orchestration.ID_JAZZ)">{{orchestration.TITLE}}</a>
                 </td>
+                <td>
+                     <div ng-show="orchestration.PICTURE">
+                          <a target="_blank" ng-href="/Content/Images/{{orchestration.PICTURE}}"><i class="fa fa-music"></i></a>
+                    </div>
                 <td>
                     {{orchestration.ARRANGERS1}}
                 </td>
@@ -159,7 +164,11 @@
                             <label for="pubcatnum">Public catalog number contains:</label>
                             <input type="text" name="pubcatnum" id="pubcatnum" class="form-control" ng-model="filterValues.PCN" ng-required="false" ng-minlength="1" ng-maxlength="100">
 
-                            <br/>
+ 
+                            <label for="picture">Fakebook contains:</label>
+                            <input type="text" name="picture" id="picture" class="form-control" ng-model="filterValues.PICTURE" ng-required="false" ng-minlength="1" ng-maxlength="100">
+
+                            <br />
 
                             <label for="Large:">Large:</label>
                             <select name="largeSelect" ng-model="filterValues.LARGE">
@@ -266,4 +275,3 @@
         </div>
     </div>
 </div>
-

@@ -135,6 +135,7 @@
           <Property Name="NewRec" Type="bit" />
           <Property Name="PCN" Type="nvarchar" MaxLength="20" />
           <Property Name="ID" Type="nvarchar" MaxLength="100" />
+          <Property Name="PICTURE" Type="nvarchar" MaxLength="100" />
           <Property Name="TOTAL_ROWS" Type="int" />
           <Property Name="SORT_BY" Type="nvarchar" MaxLength="50" />
         </EntityType>
@@ -413,6 +414,7 @@
           <Property Name="ID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="TOTAL_ROWS" Type="Int32" />
           <Property Name="SORT_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PICTURE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityContainer Name="CatalogDbEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Orchestrations" EntityType="Self.Orchestration" />
@@ -755,6 +757,7 @@
           <EntitySetMapping Name="Orchestrations">
             <EntityTypeMapping TypeName="CatalogDbModel.Orchestration">
               <MappingFragment StoreEntitySet="Orchestrations">
+                <ScalarProperty Name="PICTURE" ColumnName="PICTURE" />
                 <ScalarProperty Name="SORT_BY" ColumnName="SORT_BY" />
                 <ScalarProperty Name="TOTAL_ROWS" ColumnName="TOTAL_ROWS" />
                 <ScalarProperty Name="TITLE" ColumnName="TITLE" />
