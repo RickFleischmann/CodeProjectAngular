@@ -44,5 +44,6 @@ namespace CodeProjectAngular.WebAPI
         public int ID_SILENT { get; set; }
         public Nullable<int> TOTAL_ROWS { get; set; }
         public string SORT_BY { get; set; }
+        public string PICTURE { get; set; }
     }
 }

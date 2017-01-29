@@ -179,6 +179,7 @@
       <DependentUpon>CatalogModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\C78Controller.cs" />
     <Compile Include="Controllers\SolosController.cs" />
     <Compile Include="Controllers\SheetMusController.cs" />
     <Compile Include="Controllers\OrchestrationsController.cs" />

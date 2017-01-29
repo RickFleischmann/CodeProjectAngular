@@ -29,6 +29,11 @@
                     templateUrl: './View/SolosBrowse.html',
                     controller: 'SolosBrowseController'
               })
+              .state('78browse', {
+                  url: '/78Browse',
+                  templateUrl: './View/78Browse.html',
+                  controller: '78BrowseController'
+              })
                 .state('otherwise', {
                     url: '*path',
                     templateUrl: '/View/Home.html',

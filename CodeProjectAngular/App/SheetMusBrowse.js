@@ -36,7 +36,8 @@
             KEY: '',
             LARGE: '',
             ARRANGYEAR: '',
-            PCN: ''
+            PCN: '',
+            PICTURE: ''
         };
 
         $scope.SORT_BY = 'TITLE'; // set the default sort type
@@ -148,7 +149,7 @@
                 return;
             }
 
-            // sets empty filter values to {}
+               // sets empty filter values to {}
             $scope.PrepForAPI();
 
             var uri = '?';
@@ -161,7 +162,7 @@
             // add ROW_START and SORT_TYPE
             uri += 'ROW_START=' + $scope.row_start + '&SORT_BY=' + $scope.SORT_BY;
 
-            //onsole.log(uri);
+            console.log(uri);
 
 
             $http({

@@ -37,7 +37,8 @@
             PLATE_NUMBER: '',
             KEY: '',
             LARGE: '',
-            PCN: ''
+            PCN: '',
+            PICTURE: ''
         };
 
         $scope.SORT_BY = 'TITLE'; // set the default sort type

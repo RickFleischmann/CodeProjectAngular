@@ -48,6 +48,7 @@
             </tr>
             <tr>
                 <th>Title</th>
+                <th>Image</th>
                 <th>Key</th>
                 <th>Instrument</th>
                 <th>Publisher</th>
@@ -68,6 +69,11 @@
                 <td>
                     <a href ng-click="DetailModal(Solos.ID_SOLOS)">{{Solos.TITLE}}</a>
                 </td>
+                <td>
+                    <div ng-show="Solos.PICTURE">
+                        <a target="_blank" ng-href="/Content/Images/{{Solos.PICTURE}}"><i class="fa fa-music"></i></a>
+                    </div>
+                <td>
                 <td>
                     {{Solos.KEY}}
                 </td>
@@ -177,6 +183,9 @@
                             <label for="pubcatnum">Public catalog number contains:</label>
                             <input type="text" name="pubcatnum" id="pubcatnum" class="form-control" ng-model="filterValues.PCN" ng-required="false" ng-minlength="1" ng-maxlength="100">
 
+                            <label for="picture">Fakebook contains:</label>
+                            <input type="text" name="picture" id="picture" class="form-control" ng-model="filterValues.PICTURE" ng-required="false" ng-minlength="1" ng-maxlength="100">
+
                             <br />
 
                             <label for="Large:">Large:</label>
@@ -236,7 +245,7 @@
                         <div ng-show="detailData.INSTRUMENT">{{detailData.INSTRUMENT}}</div>
                         <br />
 
-                        
+
                         <div class="text-primary">Plate Number:</div>
                         <div ng-show="detailData.PLATE_NUMBER">{{detailData.PLATE_NUMBER}}</div>
                         <br />
@@ -283,6 +292,8 @@
                         <div ng-show="detailData.NOTES1">{{detailData.NOTES1}}</div>
                         <div ng-show="detailData.NOTES2">{{detailData.NOTES2}}</div>
                         <br />
+
+
                     </div>
                 </div>
                 <button type="button" class="btn btn-default col-md-offset-1" data-dismiss="modal">Back</i></button>

@@ -64,6 +64,7 @@
           <Property Name="FLD_3_COUNT" Type="int" />
           <Property Name="YEAR_SHEETMUS" Type="nvarchar" MaxLength="4" />
           <Property Name="UCASE_FLD2_DATA" Type="nvarchar" MaxLength="250" />
+          <Property Name="PICTURE" Type="nvarchar" MaxLength="100" />
           <Property Name="TOTAL_ROWS" Type="int" />
           <Property Name="SORT_BY" Type="nvarchar" MaxLength="50" />
         </EntityType>
@@ -99,6 +100,7 @@
           <Property Name="Person" Type="nvarchar" MaxLength="120" />
           <Property Name="Role" Type="nvarchar" MaxLength="50" />
           <Property Name="ID_FILMSONGPERSON" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PICTURE" Type="nvarchar" MaxLength="100" />
           <Property Name="TOTAL_ROWS" Type="int" />
           <Property Name="SORT_BY" Type="nvarchar" MaxLength="50" />
         </EntityType>
@@ -169,6 +171,7 @@
           <Property Name="LYRICISTS3" Type="nvarchar" MaxLength="70" />
           <Property Name="LYRICISTS4" Type="nvarchar" MaxLength="70" />
           <Property Name="ID_PIANOROL" Type="int" Nullable="false" />
+          <Property Name="PICTURE" Type="nvarchar" MaxLength="100" />
           <Property Name="TOTAL_ROWS" Type="int" />
           <Property Name="SORT_BY" Type="nvarchar" MaxLength="50" />
         </EntityType>
@@ -202,6 +205,7 @@
           <Property Name="LYRICISTS3" Type="nvarchar" MaxLength="70" />
           <Property Name="LYRICISTS4" Type="nvarchar" MaxLength="70" />
           <Property Name="ID_PRP" Type="int" Nullable="false" />
+          <Property Name="PICTURE" Type="nvarchar" MaxLength="100" />
           <Property Name="TOTAL_ROWS" Type="int" />
           <Property Name="SORT_BY" Type="nvarchar" MaxLength="50" />
         </EntityType>
@@ -239,6 +243,7 @@
           <Property Name="NewRec" Type="bit" />
           <Property Name="ARRANGYEAR" Type="nvarchar" MaxLength="4" />
           <Property Name="PCN" Type="nvarchar" MaxLength="20" />
+          <Property Name="PICTURE" Type="nvarchar" MaxLength="100" />
           <Property Name="TOTAL_ROWS" Type="int" />
           <Property Name="SORT_BY" Type="varchar" MaxLength="50" />
         </EntityType>
@@ -274,6 +279,7 @@
           <Property Name="ARRANGERS1" Type="nvarchar" MaxLength="70" />
           <Property Name="ARRANGERS2" Type="nvarchar" MaxLength="70" />
           <Property Name="ID_SILENT" Type="int" Nullable="false" />
+          <Property Name="PICTURE" Type="nvarchar" MaxLength="100" />
           <Property Name="TOTAL_ROWS" Type="int" />
           <Property Name="SORT_BY" Type="nvarchar" MaxLength="50" />
         </EntityType>
@@ -314,6 +320,7 @@
           <Property Name="PERFORMERS1" Type="nvarchar" MaxLength="70" />
           <Property Name="PERFORMERS2" Type="nvarchar" MaxLength="70" />
           <Property Name="ID_SOLOS" Type="int" Nullable="false" />
+          <Property Name="PICTURE" Type="nvarchar" MaxLength="100" />
           <Property Name="TOTAL_ROWS" Type="int" />
           <Property Name="SORT_BY" Type="nvarchar" MaxLength="50" />
         </EntityType>
@@ -360,6 +367,7 @@
           <Property Name="SOURCE_COMPANY" Type="nvarchar" MaxLength="50" />
           <Property Name="ID_TRACKS" Type="int" Nullable="false" />
           <Property Name="ID_MEDIA" Type="int" />
+          <Property Name="PICTURE" Type="nvarchar" MaxLength="100" />
           <Property Name="TOTAL_ROWS" Type="int" />
           <Property Name="SORT_BY" Type="nvarchar" MaxLength="50" />
         </EntityType>
@@ -463,6 +471,7 @@
           <Property Name="PCN" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="TOTAL_ROWS" Type="Int32" />
           <Property Name="SORT_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PICTURE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="C78">
           <Key>
@@ -525,6 +534,7 @@
           <Property Name="UCASE_FLD2_DATA" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="TOTAL_ROWS" Type="Int32" />
           <Property Name="SORT_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PICTURE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Book">
           <Key>
@@ -560,6 +570,7 @@
           <Property Name="ID_FILMSONGPERSON" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TOTAL_ROWS" Type="Int32" />
           <Property Name="SORT_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PICTURE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Pianorol">
           <Key>
@@ -593,6 +604,7 @@
           <Property Name="ID_PIANOROL" Type="Int32" Nullable="false" />
           <Property Name="TOTAL_ROWS" Type="Int32" />
           <Property Name="SORT_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PICTURE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Prp">
           <Key>
@@ -626,6 +638,7 @@
           <Property Name="ID_PRP" Type="Int32" Nullable="false" />
           <Property Name="TOTAL_ROWS" Type="Int32" />
           <Property Name="SORT_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PICTURE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Silent">
           <Key>
@@ -661,6 +674,7 @@
           <Property Name="ID_SILENT" Type="Int32" Nullable="false" />
           <Property Name="TOTAL_ROWS" Type="Int32" />
           <Property Name="SORT_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PICTURE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Solo">
           <Key>
@@ -701,6 +715,7 @@
           <Property Name="ID_SOLOS" Type="Int32" Nullable="false" />
           <Property Name="TOTAL_ROWS" Type="Int32" />
           <Property Name="SORT_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PICTURE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Track">
           <Key>
@@ -747,6 +762,7 @@
           <Property Name="ID_MEDIA" Type="Int32" />
           <Property Name="TOTAL_ROWS" Type="Int32" />
           <Property Name="SORT_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PICTURE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -795,6 +811,7 @@
           <EntitySetMapping Name="SheetMus1">
             <EntityTypeMapping TypeName="CatalogDbModel.SheetMus">
               <MappingFragment StoreEntitySet="SheetMus">
+                <ScalarProperty Name="PICTURE" ColumnName="PICTURE" />
                 <ScalarProperty Name="SORT_BY" ColumnName="SORT_BY" />
                 <ScalarProperty Name="TOTAL_ROWS" ColumnName="TOTAL_ROWS" />
                 <ScalarProperty Name="PCN" ColumnName="PCN" />
@@ -832,6 +849,7 @@
           <EntitySetMapping Name="C78">
             <EntityTypeMapping TypeName="CatalogDbModel.C78">
               <MappingFragment StoreEntitySet="78">
+                <ScalarProperty Name="PICTURE" ColumnName="PICTURE" />
                 <ScalarProperty Name="SORT_BY" ColumnName="SORT_BY" />
                 <ScalarProperty Name="TOTAL_ROWS" ColumnName="TOTAL_ROWS" />
                 <ScalarProperty Name="UCASE_FLD2_DATA" ColumnName="UCASE_FLD2_DATA" />
@@ -918,6 +936,7 @@
           <EntitySetMapping Name="FilmSongPersons">
             <EntityTypeMapping TypeName="CatalogDbModel.FilmSongPerson">
               <MappingFragment StoreEntitySet="FilmSongPerson">
+                <ScalarProperty Name="PICTURE" ColumnName="PICTURE" />
                 <ScalarProperty Name="SORT_BY" ColumnName="SORT_BY" />
                 <ScalarProperty Name="TOTAL_ROWS" ColumnName="TOTAL_ROWS" />
                 <ScalarProperty Name="ID_FILMSONGPERSON" ColumnName="ID_FILMSONGPERSON" />
@@ -932,6 +951,7 @@
           <EntitySetMapping Name="Pianorols">
             <EntityTypeMapping TypeName="CatalogDbModel.Pianorol">
               <MappingFragment StoreEntitySet="Pianorol">
+                <ScalarProperty Name="PICTURE" ColumnName="PICTURE" />
                 <ScalarProperty Name="SORT_BY" ColumnName="SORT_BY" />
                 <ScalarProperty Name="TOTAL_ROWS" ColumnName="TOTAL_ROWS" />
                 <ScalarProperty Name="ID_PIANOROL" ColumnName="ID_PIANOROL" />
@@ -966,6 +986,7 @@
           <EntitySetMapping Name="Prps">
             <EntityTypeMapping TypeName="CatalogDbModel.Prp">
               <MappingFragment StoreEntitySet="Prp">
+                <ScalarProperty Name="PICTURE" ColumnName="PICTURE" />
                 <ScalarProperty Name="SORT_BY" ColumnName="SORT_BY" />
                 <ScalarProperty Name="TOTAL_ROWS" ColumnName="TOTAL_ROWS" />
                 <ScalarProperty Name="ID_PRP" ColumnName="ID_PRP" />
@@ -1000,6 +1021,7 @@
           <EntitySetMapping Name="Silents">
             <EntityTypeMapping TypeName="CatalogDbModel.Silent">
               <MappingFragment StoreEntitySet="Silent">
+                <ScalarProperty Name="PICTURE" ColumnName="PICTURE" />
                 <ScalarProperty Name="SORT_BY" ColumnName="SORT_BY" />
                 <ScalarProperty Name="TOTAL_ROWS" ColumnName="TOTAL_ROWS" />
                 <ScalarProperty Name="ID_SILENT" ColumnName="ID_SILENT" />
@@ -1036,6 +1058,7 @@
           <EntitySetMapping Name="Solos">
             <EntityTypeMapping TypeName="CatalogDbModel.Solo">
               <MappingFragment StoreEntitySet="Solos">
+                <ScalarProperty Name="PICTURE" ColumnName="PICTURE" />
                 <ScalarProperty Name="SORT_BY" ColumnName="SORT_BY" />
                 <ScalarProperty Name="TOTAL_ROWS" ColumnName="TOTAL_ROWS" />
                 <ScalarProperty Name="ID_SOLOS" ColumnName="ID_SOLOS" />
@@ -1077,6 +1100,7 @@
           <EntitySetMapping Name="Tracks">
             <EntityTypeMapping TypeName="CatalogDbModel.Track">
               <MappingFragment StoreEntitySet="Tracks">
+                <ScalarProperty Name="PICTURE" ColumnName="PICTURE" />
                 <ScalarProperty Name="SORT_BY" ColumnName="SORT_BY" />
                 <ScalarProperty Name="TOTAL_ROWS" ColumnName="TOTAL_ROWS" />
                 <ScalarProperty Name="ID_MEDIA" ColumnName="ID_MEDIA" />
