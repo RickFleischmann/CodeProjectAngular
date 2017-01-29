@@ -75,15 +75,10 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Images\monkey.jpg" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\Images\%27S WONDERFUL.pdf" />
     <Content Include="Content\Images\ALL THE THINGS YOU ARE.pdf" />
     <Content Include="Content\Images\ALL THROUGH THE NIGHT.pdf" />
     <Content Include="Content\Images\ALMOST LIKE BEING IN LOVE.pdf" />
-    <Content Include="Content\Images\%27S WONDERFUL.pdf" />
     <Content Include="Content\Images\ALONG WITH ME.pdf" />
     <Content Include="Content\Images\ALWAYS TRUE TO YOU IN MY FASHION.pdf" />
     <Content Include="Content\Images\AMONG MY SOUVENIRS.pdf" />
@@ -331,6 +326,7 @@
     <Content Include="Content\Images\MEMORIES OF YOU.pdf" />
     <Content Include="Content\Images\MISS YOU.pdf" />
     <Content Include="Content\Images\MOANIN%27 LOW.pdf" />
+    <Content Include="Content\Images\monkey.jpg" />
     <Content Include="Content\Images\MOOD INDIGO.pdf" />
     <Content Include="Content\Images\MOON OVER MIAMI.pdf" />
     <Content Include="Content\Images\MOONGLOW.pdf" />
@@ -510,6 +506,10 @@
     <Content Include="Content\Images\YOU%27RE MINE, YOU.pdf" />
     <Content Include="Content\Images\YOU%27RE THE ONE I CARE FOR.pdf" />
     <Content Include="Content\Images\YOUNGER THAN SPRINGTIME.pdf" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="Properties\PublishProfiles\CodeProjectAngular.pubxml" />
     <None Include="Scripts\jquery-1.9.0.intellisense.js" />
     <Content Include="Scripts\angular.min.js" />
