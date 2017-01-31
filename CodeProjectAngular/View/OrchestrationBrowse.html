@@ -14,7 +14,7 @@
             <tr>
                 <th colspan="10">
                     <div class="input-group col-lg-6">
-                        <input ng-model="filterValues.TITLE" ng-model-options='{ debounce: 750 }' autofocus ng-change="ChangedTitleSearch()" type="text" class="form-control" placeholder="Title Contains...">
+                        <input ng-model="SearchBox" ng-model-options='{ debounce: 750 }' autofocus ng-change="ChangedSearchBoxSearch()" type="text" class="form-control" placeholder="Title Contains...">
                         <span class="input-group-btn">
                             <button ng-click="FilterModal()" class="btn btn-info" type="button">Filter</i></button>
                         </span>
@@ -71,13 +71,13 @@
                           <a target="_blank" ng-href="/Content/Images/{{orchestration.PICTURE}}"><i class="fa fa-music"></i></a>
                     </div>
                 <td>
-                    {{orchestration.ARRANGERS1}}
+                    {{orchestration.ARRANGERS1 }}
                 </td>
                 <td>
                     {{orchestration.CATNUM}}
                 </td>
                 <td>
-                    {{orchestration.LARGE}}
+                    {{orchestration.LARGE ? "LARGE" : ""}}
                 </td>
                 <td>
                     {{orchestration.KEY}}
@@ -120,7 +120,7 @@
                 <div class="modal-body">
                     <div id="scroll-wrap">
                         <div class="form-group">
-                            <label for="Title">Title contains:</label>
+                            <label for="Title">Title begins:</label>
                             <input type="text" name="Title" id="Title" class="form-control" ng-model="filterValues.TITLE" ng-required="false" ng-minlength="1" ng-maxlength="100">
 
                             <label for="complyr">Composer/Lyricist contains:</label>
@@ -173,7 +173,8 @@
 
                             <label for="Large:">Large:</label>
                             <select name="largeSelect" ng-model="filterValues.LARGE">
-                                 <option value="NO">NO</option>
+                                <option value="">ALL</option>
+                                <option value="NO">NO</option>
                                 <option value="YES">YES</option>
                             </select><br>
 

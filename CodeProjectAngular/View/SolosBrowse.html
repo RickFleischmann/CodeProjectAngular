@@ -48,7 +48,7 @@
             </tr>
             <tr>
                 <th>Title</th>
-                <th>Image</th>
+                <!--<th>Image</th>-->
                 <th>Key</th>
                 <th>Instrument</th>
                 <th>Publisher</th>
@@ -69,11 +69,11 @@
                 <td>
                     <a href ng-click="DetailModal(Solos.ID_SOLOS)">{{Solos.TITLE}}</a>
                 </td>
-                <td>
+                <!--<td>
                     <div ng-show="Solos.PICTURE">
                         <a target="_blank" ng-href="/Content/Images/{{Solos.PICTURE}}"><i class="fa fa-music"></i></a>
                     </div>
-                <td>
+                <td>-->
                 <td>
                     {{Solos.KEY}}
                 </td>
@@ -87,7 +87,7 @@
                     {{Solos.CATNUM}}
                 </td>
                 <td>
-                    {{Solos.LARGE}}
+                    {{Solos.LARGE ? "LARGE" : ""}}
                 </td>
                 <td>
                     {{Solos.COMPOSERS1}}
@@ -137,7 +137,7 @@
                 <div class="modal-body">
                     <div id="scroll-wrap">
                         <div class="form-group">
-                            <label for="Title">Title contains:</label>
+                            <label for="Title">Title begins:</label>
                             <input type="text" name="Title" id="Title" class="form-control" ng-model="filterValues.TITLE" ng-required="false" ng-minlength="1" ng-maxlength="100">
 
                             <label for="key">Key contains:</label>
@@ -183,13 +183,13 @@
                             <label for="pubcatnum">Public catalog number contains:</label>
                             <input type="text" name="pubcatnum" id="pubcatnum" class="form-control" ng-model="filterValues.PCN" ng-required="false" ng-minlength="1" ng-maxlength="100">
 
-                            <label for="picture">Fakebook contains:</label>
-                            <input type="text" name="picture" id="picture" class="form-control" ng-model="filterValues.PICTURE" ng-required="false" ng-minlength="1" ng-maxlength="100">
+                            <!--<label for="picture">Fakebook contains:</label>
+                            <input type="text" name="picture" id="picture" class="form-control" ng-model="filterValues.PICTURE" ng-required="false" ng-minlength="1" ng-maxlength="100">-->
 
                             <br />
-
                             <label for="Large:">Large:</label>
                             <select name="largeSelect" ng-model="filterValues.LARGE">
+                                <option value="">ALL</option>
                                 <option value="NO">NO</option>
                                 <option value="YES">YES</option>
                             </select><br>

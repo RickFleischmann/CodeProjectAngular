@@ -38,25 +38,25 @@
             PLATE_NUMBER: '',
             PCN: '',
             PICTURE: '',
-            LARGE: 'ALL'
+            LARGE: ''
         };
 
         $scope.SORT_BY = 'TITLE'; // set the default sort type
         $scope.sortReverse = false;  // set the default sort order
  
          $scope.CheckQueryString = function () {
-            console.log('query:');
+            //onsole.log('query:');
             var queryString = '';
             angular.forEach($scope.filterValues, function (value, key) {
                 queryString += $scope.filterValues[key];
             });
 
-            console.log('query: ' + queryString);
+            //onsole.log('query: ' + queryString);
             if (queryString.length > 0) {
-                console.log("has filter");
+                //onsole.log("has filter");
                 $scope.FilterIsSet = true;
             } else {
-                console.log("has no filter");
+                //onsole.log("has no filter");
                 $scope.FilterIsSet = false;
             }
 
@@ -68,7 +68,7 @@
                 $scope.filterValues[key] = '';
            });
  
-           $scope.SORT_BY = 'TITLE';
+           $scope.SearchBox = '';
 
          };
 
@@ -126,15 +126,26 @@
             }
             return true;
         };
+   
+        $scope.ChangedSearchBoxSearch = function () {
 
-        $scope.ChangedTitleSearch = function () {
+             var FilterElement = '';
+            
+            if ($scope.SORT_BY.match('ARRANGER')) {
+                FilterElement = 'ARRANGER';
+            }
+            else if ($scope.SORT_BY.match('COMPOSER')) {
+                FilterElement = 'COMP_LYR';
+            }
+            else if ($scope.SORT_BY.match('LYRICIST')) {
+                FilterElement = 'COMP_LYR';
+            }
+            else {
+                FilterElement = $scope.SORT_BY;
+            }
 
-            // if searching from title box, clear all other query terms
-            $scope.lastTitleFilter = $scope.filterValues.TITLE;
-            $scope.ClearFilter();
-            $scope.filterValues.TITLE = $scope.lastTitleFilter;
+            $scope.filterValues[FilterElement] = $scope.SearchBox
 
-            //if ($scope.filterValues.TITLE.length < 3) return;
             $scope.GetTitleBySubstring();
         };
 
@@ -153,6 +164,8 @@
             // sets empty filter values to {}
             $scope.PrepForAPI();
 
+            console.log($scope.filterValues);
+
             var uri = '?';
 
             // prepare uri for GET
@@ -162,6 +175,8 @@
 
             // add ROW_START and SORT_TYPE
             uri += 'ROW_START=' + $scope.row_start + '&SORT_BY=' + $scope.SORT_BY;
+
+            console.log(uri);
 
             $http({
                 method: 'GET',
