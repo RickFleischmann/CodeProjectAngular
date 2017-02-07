@@ -29,6 +29,16 @@
                     templateUrl: './View/SolosBrowse.html',
                     controller: 'SolosBrowseController'
               })
+              .state('silentbrowse', {
+                  url: '/SilentBrowse',
+                  templateUrl: './View/SilentBrowse.html',
+                  controller: 'SilentBrowseController'
+              })
+              .state('pianorolbrowse', {
+                  url: '/PianorolBrowse',
+                  templateUrl: './View/PianorolBrowse.html',
+                  controller: 'PianorolBrowseController'
+              })
               .state('78browse', {
                   url: '/78Browse',
                   templateUrl: './View/78Browse.html',

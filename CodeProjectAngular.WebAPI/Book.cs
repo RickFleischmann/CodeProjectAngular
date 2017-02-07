@@ -31,5 +31,7 @@ namespace CodeProjectAngular.WebAPI
         public Nullable<bool> NewRec { get; set; }
         public Nullable<int> TOTAL_ROWS { get; set; }
         public string SORT_BY { get; set; }
+        public string SEARCHBOX { get; set; }
+        public Nullable<int> ROW_NUM { get; set; }
     }
 }

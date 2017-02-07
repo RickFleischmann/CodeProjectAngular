@@ -8,14 +8,14 @@ using System.Web.Http;
 
 namespace CodeProjectAngular.WebAPI.Controllers
 {
-    public class SheetMusController : ApiController
+    public class SilentController : ApiController
     {
         CatalogDbEntities _db = new CatalogDbEntities();
 
        
         
         // GET api/values
-        public IEnumerable<SheetMus> Get(
+        public IEnumerable<Silent> Get(
 string TITLE,
 string CATNUM,
 string COMP_LYR,
@@ -41,7 +41,7 @@ string SORT_BY
 
    
             var model = _db.Database
-                .SqlQuery<SheetMus>("GetSheetMus @fTITLE,	@fCATNUM,	@fCOMP_LYR,	@fPUBLISHER,	@fPHOTO,	@fTITLEYEAR,	@fPRODTYPE,	@fPRODTITLE,	@fARRANGTYPE,	@fNOTES,	@fPLATE_NUMBER,	@fKEY, @fLARGE,	@fARRANGYEAR,	@fPCN, @fPICTURE, @fSEARCHBOX, @fROW_START, @fSORT_BY ",
+                .SqlQuery<Silent>("GetSilent @fTITLE,	@fCATNUM,	@fCOMP_LYR,	@fPUBLISHER,	@fPHOTO,	@fTITLEYEAR,	@fPRODTYPE,	@fPRODTITLE,	@fARRANGTYPE,	@fNOTES,	@fPLATE_NUMBER,	@fKEY, @fLARGE,	@fARRANGYEAR,	@fPCN, @fPICTURE, @fSEARCHBOX, @fROW_START, @fSORT_BY ",
                 new SqlParameter("@fTITLE",TITLE),
                 new SqlParameter("@fCATNUM",CATNUM),
                 new SqlParameter("@fCOMP_LYR",COMP_LYR),

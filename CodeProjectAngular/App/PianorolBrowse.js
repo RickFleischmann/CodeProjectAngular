@@ -4,7 +4,7 @@
 
     var appVar = angular.module("app");
  
-    appVar.controller("SheetMusBrowseController", ["$scope", "$http", function ($scope, $http) {
+    appVar.controller("PianorolBrowseController", ["$scope", "$http", function ($scope, $http) {
 
         $scope.GetIndexFromObjectElement = function (obj, keyName, keyValue) {
             var newIndex = null;
@@ -15,43 +15,43 @@
         };
 
         $scope.SORT_BY = 'TITLE'; // set the default sort type
+        $scope.SearchBox = '';
         $scope.row_start = 1;
         $scope.row_display_end = 0;
         $scope.total_rows = 0;
+        $scope.FilterSet = false;
 
-        $scope.sortFields = ['TITLE', 'CATNUM', 'COMPOSERS1', 'KEY', 'TITLEYEAR', 'LYRICISTS1', 'PRODTYPE', 'PRODTITLE', 'LYRICISTS2', 'PUBLISHER', 'COMPOSERS2', 'COMPOSERS3', 'COMPOSERS4'];
+        $scope.sortFields = ['TITLE', 'COMPANY', 'MEDIACAT', 'TITLEYEAR', 'PERFORMERS1', 'COMPOSERS1', 'COMPOSERS2', 'COMPOSERS3', 'COMPOSERS4'];
 
         $scope.filterValues = {
             TITLE: '',
-            CATNUM: '',
             COMP_LYR: '',
+            PERFORMER: '',
             PUBLISHER: '',
-            PHOTO: '',
             TITLEYEAR: '',
+            ARRANGYEAR: '',
+            ARRANGTYPE: '',
             PRODTYPE: '',
             PRODTITLE: '',
-            ARRANGTYPE: '',
             NOTES: '',
-            PLATE_NUMBER: '',
-            KEY: '',
-            LARGE: '',
-            ARRANGYEAR: '',
-            PCN: '',
+            COMPANY: '',
             PICTURE: '',
+            LARGE: '',
+            MEDIACAT: '',
             SEARCHBOX: ''
+
         };
 
         $scope.SORT_BY = 'TITLE'; // set the default sort type
         $scope.sortReverse = false;  // set the default sort order
-
-
+ 
         $scope.ClearFilter = function () {
-            angular.forEach($scope.filterValues, function (value, key) {
+           angular.forEach($scope.filterValues, function (value, key) {
                 $scope.filterValues[key] = '';
-            });
-            $scope.FilterSet = false;
-            $scope.row_start = 0;
-        };
+           });
+           $scope.FilterSet = false;
+           $scope.row_start = 0;
+          };
 
         $scope.ClearFilterAndRequery = function () {
             $scope.ClearFilter();
@@ -62,7 +62,7 @@
 
         $scope.PrepForAPI = function () {
             angular.forEach($scope.filterValues, function (value, key) {
-                if ($scope.filterValues[key] === '') {
+                 if ($scope.filterValues[key] === '') {
                     $scope.filterValues[key] = '{}';
                 }
             });
@@ -70,21 +70,20 @@
             if ($scope.row_start == 0) {
                 $scope.row_start = 1;
             }
-        };
+         };
 
         $scope.PrepAfterAPI = function () {
             angular.forEach($scope.filterValues, function (value, key) {
-
+ 
                 if ($scope.filterValues[key] === '{}') {
                     $scope.filterValues[key] = '';
                 }
             });
-        };
-
+         };
 
         $scope.GetTitleBySubstring = function () {
 
-            if ($scope.SearchBox == '') {
+             if ($scope.SearchBox == '') {
                 $scope.filterValues.SEARCHBOX = ''
             } else {
                 $scope.filterValues.SEARCHBOX = $scope.SearchBox
@@ -105,7 +104,7 @@
             // prepare uri for GET
             angular.forEach($scope.filterValues, function (value, key) {
                 uri += key + '=' + value + '&';
-            });
+             });
 
             // add ROW_START and SORT_TYPE
             uri += 'ROW_START=' + $scope.row_start + '&SORT_BY=' + $scope.SORT_BY;
@@ -114,12 +113,12 @@
 
             $http({
                 method: 'GET',
-                url: 'http://99.248.19.5/webAPI/api/SheetMus' + uri
+                url: 'http://99.248.19.5/webAPI/api/Pianorol' + uri
             })
             .success(function (data) {
-                $scope.SheetMus = data;
-
-                if ($scope.isEmpty($scope.SheetMus)) {
+                $scope.Pianorol = data;
+                
+                if ($scope.isEmpty($scope.Pianorol)) {
                     //onsole.log('empty');
                     $scope.row_start = 0;
                     $scope.row_display_end = 0;
@@ -128,18 +127,18 @@
                 }
 
 
-                $scope.total_rows = $scope.SheetMus[0].TOTAL_ROWS;
-                $scope.row_start = $scope.SheetMus[0].ROW_NUM
+                 $scope.total_rows = $scope.Pianorol[0].TOTAL_ROWS;
+                 $scope.row_start = $scope.Pianorol[0].ROW_NUM
 
-
-                if ($scope.row_start + 19 < $scope.total_rows) {
+ 
+                if ($scope.row_start+19<$scope.total_rows) {
                     $scope.row_display_end = $scope.row_start + 19;
                 }
-                else if ($scope.row_start + 19 >= $scope.total_rows) {
+                else if ($scope.row_start + 19>=$scope.total_rows) {
                     $scope.row_display_end = $scope.total_rows;
                 }
-
-                //onsole.log($scope.orchestrations);
+                
+                //onsole.log($scope.Pianorol);
             })
             .error(function (data, status) {
                 window.alert('error');
@@ -149,6 +148,7 @@
             $scope.PrepAfterAPI();
 
         };
+ 
 
         $scope.GetTitleBySubstring();
 
@@ -156,7 +156,7 @@
             $scope.SearchBox = '';
             $scope.row_start = 1;
             $scope.GetTitleBySubstring();
-        };
+         };
 
         $scope.NextPage = function () {
 
@@ -177,7 +177,7 @@
             }
             return true;
         };
-
+   
         $scope.FilterChange = function () {
             $scope.FilterSet = false;
             angular.forEach($scope.filterValues, function (value, key) {
@@ -201,10 +201,11 @@
         };
 
         $scope.DetailModal = function (id) {
-            $scope.detailData = $scope.SheetMus[$scope.GetIndexFromObjectElement($scope.SheetMus, 'ID_SHEETMUS', id)];
+            $scope.detailData = $scope.Pianorol[$scope.GetIndexFromObjectElement($scope.Pianorol, 'ID_PIANOROL', id)];
             $('#DetailModal').modal();
         };
 
+ 
     }]);
 
 }());

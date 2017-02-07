@@ -33,15 +33,16 @@ string LARGE,
 string ARRANGYEAR,
 string PCN,
 string PICTURE,
+string SEARCHBOX,
 string ROW_START,
-string SORT_BY	
+string SORT_BY
 
             )
         {
 
    
             var model = _db.Database
-                .SqlQuery<Solo>("GetSolos @fTITLE,	@fCATNUM,	@fCOMP_LYR,	@fPUBLISHER,	@fPHOTO, @fINSTRUMENT,	@fTITLEYEAR,	@fPRODTYPE,	@fPRODTITLE,	@fARRANGTYPE,	@fNOTES,	@fPLATE_NUMBER,	@fKEY, @fLARGE,	@fARRANGYEAR,	@fPCN,	@fPICTURE, @fROW_START,	@fSORT_BY ",
+                .SqlQuery<Solo>("GetSolos @fTITLE,	@fCATNUM,	@fCOMP_LYR,	@fPUBLISHER,	@fPHOTO, @fINSTRUMENT,	@fTITLEYEAR,	@fPRODTYPE,	@fPRODTITLE,	@fARRANGTYPE,	@fNOTES,	@fPLATE_NUMBER,	@fKEY, @fLARGE,	@fARRANGYEAR,	@fPCN,	@fPICTURE, @fSEARCHBOX, @fROW_START, @fSORT_BY ",
                 new SqlParameter("@fTITLE",TITLE),
                 new SqlParameter("@fCATNUM",CATNUM),
                 new SqlParameter("@fCOMP_LYR",COMP_LYR),
@@ -59,6 +60,7 @@ string SORT_BY
                 new SqlParameter("@fARRANGYEAR",ARRANGYEAR),
                 new SqlParameter("@fPCN",PCN),
                new SqlParameter("@fPICTURE", PICTURE),
+               new SqlParameter("@fSEARCHBOX", SEARCHBOX),
                 new SqlParameter("@fROW_START",ROW_START),
                 new SqlParameter("@fSORT_BY",SORT_BY)
                 )

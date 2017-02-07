@@ -4,7 +4,7 @@
 
     var appVar = angular.module("app");
  
-    appVar.controller("SheetMusBrowseController", ["$scope", "$http", function ($scope, $http) {
+    appVar.controller("SilentBrowseController", ["$scope", "$http", function ($scope, $http) {
 
         $scope.GetIndexFromObjectElement = function (obj, keyName, keyValue) {
             var newIndex = null;
@@ -19,7 +19,7 @@
         $scope.row_display_end = 0;
         $scope.total_rows = 0;
 
-        $scope.sortFields = ['TITLE', 'CATNUM', 'COMPOSERS1', 'KEY', 'TITLEYEAR', 'LYRICISTS1', 'PRODTYPE', 'PRODTITLE', 'LYRICISTS2', 'PUBLISHER', 'COMPOSERS2', 'COMPOSERS3', 'COMPOSERS4'];
+        $scope.sortFields = ['TITLE', 'KEY', 'ARRANGERS1', 'PUBLISHER', 'CATNUM', 'COMPOSERS1', 'LYRICISTS1', 'TITLEYEAR', 'PRODTYPE', 'PRODTITLE'];
 
         $scope.filterValues = {
             TITLE: '',
@@ -28,6 +28,7 @@
             PUBLISHER: '',
             PHOTO: '',
             TITLEYEAR: '',
+            ARRANGYEAR: '',
             PRODTYPE: '',
             PRODTITLE: '',
             ARRANGTYPE: '',
@@ -35,7 +36,6 @@
             PLATE_NUMBER: '',
             KEY: '',
             LARGE: '',
-            ARRANGYEAR: '',
             PCN: '',
             PICTURE: '',
             SEARCHBOX: ''
@@ -82,7 +82,24 @@
         };
 
 
+        $scope.Requery = function () {
+
+            $scope.CheckQueryString();
+
+            if ($scope.FilterIsSet == true) {
+                $scope.row_start = 1;
+                $scope.GetTitleBySubstring();
+            }
+            else {
+                $scope.row_start = 0;
+                $scope.GetTitleBySubstring();
+            }
+
+        };
+
+
         $scope.GetTitleBySubstring = function () {
+
 
             if ($scope.SearchBox == '') {
                 $scope.filterValues.SEARCHBOX = ''
@@ -93,7 +110,7 @@
             // sets empty filter values to {}
             $scope.PrepForAPI();
 
-            //onsole.log($scope.filterValues);
+            console.log($scope.filterValues);
 
             if (angular.isUndefined($scope.row_start)) {
                 $scope.row_start = 1;
@@ -114,12 +131,12 @@
 
             $http({
                 method: 'GET',
-                url: 'http://99.248.19.5/webAPI/api/SheetMus' + uri
+                url: 'http://99.248.19.5/webAPI/api/Silent' + uri
             })
             .success(function (data) {
-                $scope.SheetMus = data;
+                $scope.Silent = data;
 
-                if ($scope.isEmpty($scope.SheetMus)) {
+                if ($scope.isEmpty($scope.Silent)) {
                     //onsole.log('empty');
                     $scope.row_start = 0;
                     $scope.row_display_end = 0;
@@ -128,8 +145,8 @@
                 }
 
 
-                $scope.total_rows = $scope.SheetMus[0].TOTAL_ROWS;
-                $scope.row_start = $scope.SheetMus[0].ROW_NUM
+                $scope.total_rows = $scope.Silent[0].TOTAL_ROWS;
+                $scope.row_start = $scope.Silent[0].ROW_NUM
 
 
                 if ($scope.row_start + 19 < $scope.total_rows) {
@@ -151,6 +168,7 @@
         };
 
         $scope.GetTitleBySubstring();
+
 
         $scope.SortChange = function () {
             $scope.SearchBox = '';
@@ -201,7 +219,7 @@
         };
 
         $scope.DetailModal = function (id) {
-            $scope.detailData = $scope.SheetMus[$scope.GetIndexFromObjectElement($scope.SheetMus, 'ID_SHEETMUS', id)];
+            $scope.detailData = $scope.Silent[$scope.GetIndexFromObjectElement($scope.Silent, 'ID_SILENT', id)];
             $('#DetailModal').modal();
         };
 

@@ -51,6 +51,7 @@ namespace CodeProjectAngular.WebAPI.Controllers
             string PCN,
             string LARGE,
             string PICTURE,
+            string SEARCHBOX,
             string ROW_START,
             string SORT_BY
             )
@@ -58,7 +59,7 @@ namespace CodeProjectAngular.WebAPI.Controllers
 
  
             var model = _db.Database
-                .SqlQuery<Orchestration>("GetOrchestrations @fTITLE, @fCOMP_LYR, @fARRANGER,@fCATNUM ,@fPUBLISHER ,@fTITLEYEAR ,@fARRANGYEAR, @fARRANGTYPE ,@fKEY ,@fPRODTYPE ,@fPRODTITLE ,@fID ,@fNOTES ,@fPLATE_NUMBER ,@fPCN ,@fLARGE, @fPICTURE, @fROW_START, @fSORT_BY ",
+                .SqlQuery<Orchestration>("GetOrchestrations @fTITLE, @fCOMP_LYR, @fARRANGER,@fCATNUM ,@fPUBLISHER ,@fTITLEYEAR ,@fARRANGYEAR, @fARRANGTYPE ,@fKEY ,@fPRODTYPE ,@fPRODTITLE ,@fID ,@fNOTES ,@fPLATE_NUMBER ,@fPCN ,@fLARGE, @fPICTURE, @fSEARCHBOX, @fROW_START, @fSORT_BY ",
                 new SqlParameter("@fTITLE", TITLE),
                 new SqlParameter("@fCOMP_LYR",COMP_LYR),
                 new SqlParameter("@fARRANGER",ARRANGER),
@@ -76,6 +77,7 @@ namespace CodeProjectAngular.WebAPI.Controllers
                 new SqlParameter("@fPCN",PCN),
                 new SqlParameter("@fLARGE",LARGE),
                 new SqlParameter("@fPICTURE", PICTURE),
+                new SqlParameter("@fSEARCHBOX", SEARCHBOX),
                 new SqlParameter("@fROW_START",ROW_START),
                 new SqlParameter("@fSORT_BY", SORT_BY)
 

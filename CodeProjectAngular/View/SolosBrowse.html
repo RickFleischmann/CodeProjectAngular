@@ -14,9 +14,10 @@
             <tr>
                 <th colspan="10">
                     <div class="input-group col-lg-6">
-                        <input ng-model="filterValues.TITLE" ng-model-options='{ debounce: 750 }' autofocus ng-change="ChangedTitleSearch()" type="text" class="form-control" placeholder="Title Contains...">
+                        <input ng-model="SearchBox" ng-model-options='{ debounce: 750 }' autofocus ng-change="ChangedSearchBoxSearch()" type="text" class="form-control">
                         <span class="input-group-btn">
                             <button ng-click="FilterModal()" class="btn btn-info" type="button">Filter</i></button>
+                            <button ng-show="FilterSet==true" ng-click="ClearFilterAndRequery()" class="btn btn-info" type="button">Clear Filter</i></button>
                         </span>
 
                         <span>Rows: {{total_rows}}</span>
@@ -29,13 +30,14 @@
                     <div class="input-group col-lg-6">
                         <span>
                             Sort by:
-                            <select ng-options="option for option in sortFields" ng-model="SORT_BY" ng-change="Requery()"></select>
+                            <select ng-options="option for option in sortFields" ng-model="SORT_BY" ng-change="SortChange()"></select>
                         </span>
 
                         <span class="input-group-btn" ng-show="(row_start-20)>0" ">
                             <button ng-click="PreviousPage()" class="btn btn-info" type="button">
                             < </i></button>
                         </span>
+
 
                         <span class="input-group-btn" ng-show="(row_start+20)<total_rows" ">
                             <button ng-click="NextPage()" class="btn btn-info" type="button">
@@ -132,63 +134,63 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="FilterModalLabel">Filter criteria</h4>
-                <button type="button" class="btn btn-default col-md-offset-1" ng-click="Requery()" data-dismiss="modal">Go</i></button>
+                <button type="button" class="btn btn-default col-md-offset-1" ng-click="GetTitleBySubstring()" data-dismiss="modal">Go</i></button>
                 <button type="button" class="btn btn-default col-md-offset-2" ng-click="ClearFilter()">Clear values</i></button>
                 <div class="modal-body">
                     <div id="scroll-wrap">
                         <div class="form-group">
                             <label for="Title">Title begins:</label>
-                            <input type="text" name="Title" id="Title" class="form-control" ng-model="filterValues.TITLE" ng-required="false" ng-minlength="1" ng-maxlength="100">
+                            <input type="text" name="Title" id="Title" class="form-control" ng-model="filterValues.TITLE" ng-required="false" ng-change="FilterChange()" ng-minlength="1" ng-maxlength="100">
 
                             <label for="key">Key contains:</label>
-                            <input type="text" name="key" id="key" class="form-control" ng-model="filterValues.KEY" ng-required="false" ng-minlength="1" ng-maxlength="100">
+                            <input type="text" name="key" id="key" class="form-control" ng-model="filterValues.KEY" ng-required="false" ng-change="FilterChange()" ng-minlength="1" ng-maxlength="100">
 
                             <label for="key">Instrument contains:</label>
-                            <input type="text" name="instrument" id="instrument" class="form-control" ng-model="filterValues.INSTRUMENT" ng-required="false" ng-minlength="1" ng-maxlength="100">
+                            <input type="text" name="instrument" id="instrument" class="form-control" ng-model="filterValues.INSTRUMENT" ng-required="false" ng-change="FilterChange()" ng-minlength="1" ng-maxlength="100">
 
                             <label for="complyr">Composer/Lyricist contains:</label>
-                            <input type="text" name="complyr" id="complyr" class="form-control" ng-model="filterValues.COMP_LYR" ng-required="false" ng-minlength="1" ng-maxlength="100">
+                            <input type="text" name="complyr" id="complyr" class="form-control" ng-model="filterValues.COMP_LYR" ng-required="false" ng-change="FilterChange()" ng-minlength="1" ng-maxlength="100">
 
                             <label for="pub">Publisher contains:</label>
-                            <input type="text" name="pub" id="pub" class="form-control" ng-model="filterValues.PUBLISHER" ng-required="false" ng-minlength="1" ng-maxlength="100">
+                            <input type="text" name="pub" id="pub" class="form-control" ng-model="filterValues.PUBLISHER" ng-required="false" ng-change="FilterChange()" ng-minlength="1" ng-maxlength="100">
 
                             <label for="tityear">Title Year contains:</label>
-                            <input type="text" name="tityear" id="tityear" class="form-control" ng-model="filterValues.TITLEYEAR" ng-required="false" ng-minlength="1" ng-maxlength="100">
+                            <input type="text" name="tityear" id="tityear" class="form-control" ng-model="filterValues.TITLEYEAR" ng-required="false" ng-change="FilterChange()" ng-minlength="1" ng-maxlength="100">
 
                             <label for="arryear">Arrangement Year contains:</label>
-                            <input type="text" name="arryear" id="arryear" class="form-control" ng-model="filterValues.ARRANGYEAR" ng-required="false" ng-minlength="1" ng-maxlength="100">
+                            <input type="text" name="arryear" id="arryear" class="form-control" ng-model="filterValues.ARRANGYEAR" ng-required="false" ng-change="FilterChange()" ng-minlength="1" ng-maxlength="100">
 
                             <label for="arrtype">Arrangement Type contains:</label>
-                            <input type="text" name="arrtype" id="arrtype" class="form-control" ng-model="filterValues.ARRANGTYPE" ng-required="false" ng-minlength="1" ng-maxlength="100">
+                            <input type="text" name="arrtype" id="arrtype" class="form-control" ng-model="filterValues.ARRANGTYPE" ng-required="false" ng-change="FilterChange()" ng-minlength="1" ng-maxlength="100">
 
 
                             <label for="prodtype">Production Type contains:</label>
-                            <input type="text" name="prodtype" id="prodtype" class="form-control" ng-model="filterValues.PRODTYPE" ng-required="false" ng-minlength="1" ng-maxlength="100">
+                            <input type="text" name="prodtype" id="prodtype" class="form-control" ng-model="filterValues.PRODTYPE" ng-required="false" ng-change="FilterChange()" ng-minlength="1" ng-maxlength="100">
 
                             <label for="prodtitle">Production Title contains:</label>
-                            <input type="text" name="prodtitle" id="prodtitle" class="form-control" ng-model="filterValues.PRODTITLE" ng-required="false" ng-minlength="1" ng-maxlength="100">
+                            <input type="text" name="prodtitle" id="prodtitle" class="form-control" ng-model="filterValues.PRODTITLE" ng-required="false" ng-change="FilterChange()" ng-minlength="1" ng-maxlength="100">
 
                             <label for="arr">Catalog # contains:</label>
-                            <input type="text" name="catnum" id="catnum" class="form-control" ng-model="filterValues.CATNUM" ng-required="false" ng-minlength="1" ng-maxlength="100">
+                            <input type="text" name="catnum" id="catnum" class="form-control" ng-model="filterValues.CATNUM" ng-required="false" ng-change="FilterChange()" ng-minlength="1" ng-maxlength="100">
 
                             <label for="id">Photo contains:</label>
-                            <input type="text" name="id" id="id" class="form-control" ng-model="filterValues.PHOTO" ng-required="false" ng-minlength="1" ng-maxlength="100">
+                            <input type="text" name="id" id="id" class="form-control" ng-model="filterValues.PHOTO" ng-required="false" ng-change="FilterChange()" ng-minlength="1" ng-maxlength="100">
 
                             <label for="id">Notes contain:</label>
-                            <input type="text" name="notes" id="notes" class="form-control" ng-model="filterValues.NOTES" ng-required="false" ng-minlength="1" ng-maxlength="100">
+                            <input type="text" name="notes" id="notes" class="form-control" ng-model="filterValues.NOTES" ng-required="false" ng-change="FilterChange()" ng-minlength="1" ng-maxlength="100">
 
                             <label for="platenum">Plate number contains:</label>
-                            <input type="text" name="platenum" id="platenum" class="form-control" ng-model="filterValues.PLATE_NUMBER" ng-required="false" ng-minlength="1" ng-maxlength="100">
+                            <input type="text" name="platenum" id="platenum" class="form-control" ng-model="filterValues.PLATE_NUMBER" ng-required="false" ng-change="FilterChange()" ng-minlength="1" ng-maxlength="100">
 
                             <label for="pubcatnum">Public catalog number contains:</label>
-                            <input type="text" name="pubcatnum" id="pubcatnum" class="form-control" ng-model="filterValues.PCN" ng-required="false" ng-minlength="1" ng-maxlength="100">
+                            <input type="text" name="pubcatnum" id="pubcatnum" class="form-control" ng-model="filterValues.PCN" ng-required="false" ng-change="FilterChange()" ng-minlength="1" ng-maxlength="100">
 
                             <!--<label for="picture">Fakebook contains:</label>
                             <input type="text" name="picture" id="picture" class="form-control" ng-model="filterValues.PICTURE" ng-required="false" ng-minlength="1" ng-maxlength="100">-->
 
                             <br />
                             <label for="Large:">Large:</label>
-                            <select name="largeSelect" ng-model="filterValues.LARGE">
+                            <select name="largeSelect" ng-change="FilterChange()" ng-model="filterValues.LARGE">
                                 <option value="">ALL</option>
                                 <option value="NO">NO</option>
                                 <option value="YES">YES</option>
@@ -198,7 +200,7 @@
 
                     </div>
                 </div>
-                <button type="button" class="btn btn-default col-md-offset-1" ng-click="Requery()" data-dismiss="modal">Go</i></button>
+                <button type="button" class="btn btn-default col-md-offset-1" ng-click="GetTitleBySubstring()" data-dismiss="modal">Go</i></button>
                 <button type="button" class="btn btn-default col-md-offset-2" ng-click="ClearFilter()">Clear values</i></button>
             </div>
         </div>

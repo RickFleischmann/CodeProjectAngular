@@ -19,7 +19,7 @@
                             <button ng-click="FilterModal()" class="btn btn-info" type="button">Filter</i></button>
                             <button ng-show="FilterSet==true" ng-click="ClearFilterAndRequery()" class="btn btn-info" type="button">Clear Filter</i></button>
                         </span>
- 
+
                         <span>Rows: {{total_rows}}</span>
 
                     </div>
@@ -50,53 +50,55 @@
             </tr>
             <tr>
                 <th>Title</th>
-                <th>Image</th>
-                <th>Arranger1</th>
+                <!--<th>Image</th>-->
+                <th>Arrangers1</th>
+                <th>Composers1</th>
                 <th>Catalog #</th>
                 <th>Large</th>
+                <th>TitleYear</th>
                 <th>Key</th>
-                <th>Arranger2</th>
-                <th>Lyricist1</th>
-                <th>Composer1</th>
-                <th>Composer2</th>
-                <th>Lyricist2</th>
+                <th>Publisher</th>
+                <th>Arrangers2</th>
+                <th>Prodtype</th>
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="orchestration in orchestrations | orderBy:SORT_BY:sortReverse">
+            <tr ng-repeat="Silent in Silent | orderBy:SORT_BY:sortReverse">
                 <td>
-                    <a href ng-click="DetailModal(orchestration.ID_JAZZ)">{{orchestration.TITLE}}</a>
+                    <a href ng-click="DetailModal(Silent.ID_SILENT)">{{Silent.TITLE}}</a>
                 </td>
-                <td>
-                     <div ng-show="orchestration.PICTURE">
-                          <a target="_blank" ng-href="/Content/Images/{{orchestration.PICTURE}}"><i class="fa fa-music"></i></a>
+                <!--<td>
+                     <div ng-show="Silent.PICTURE">
+                          <a target="_blank" ng-href="/Content/Images/{{Silent.PICTURE}}"><i class="fa fa-music"></i></a>
                     </div>
+                <td>-->
                 <td>
-                    {{orchestration.ARRANGERS1 }}
+                    {{Silent.ARRANGERS1 }}
                 </td>
                 <td>
-                    {{orchestration.CATNUM}}
+                    {{Silent.COMPOSERS1}}
                 </td>
                 <td>
-                    {{orchestration.LARGE ? "LARGE" : ""}}
+                    {{Silent.CATNUM}}
                 </td>
                 <td>
-                    {{orchestration.KEY}}
+                    {{Silent.LARGE ? "LARGE" : ""}}
                 </td>
                 <td>
-                    {{orchestration.ARRANGERS2}}
+                    {{Silent.TITLEYEAR}}
+                </td>
+
+                <td>
+                    {{Silent.KEY}}
                 </td>
                 <td>
-                    {{orchestration.LYRICISTS1}}
+                    {{Silent.PUBLISHER}}
                 </td>
                 <td>
-                    {{orchestration.COMPOSERS1}}
+                    {{Silent.ARRANGERS2}}
                 </td>
                 <td>
-                    {{orchestration.COMPOSERS2}}
-                </td>
-                <td>
-                    {{orchestration.LYRICISTS2}}
+                    {{Silent.PRODTYPE}}
                 </td>
             </tr>
         </tbody>
@@ -124,11 +126,11 @@
                             <label for="Title">Title begins:</label>
                             <input type="text" name="Title" id="Title" class="form-control" ng-model="filterValues.TITLE" ng-change="FilterChange()" ng-required="false" ng-minlength="1" ng-maxlength="100">
 
-                            <label for="complyr">Composer/Lyricist contains:</label>
-                            <input type="text" name="complyr" id="complyr" class="form-control" ng-model="filterValues.COMP_LYR" ng-change="FilterChange()"  ng-required="false" ng-minlength="1" ng-maxlength="100">
+                            <label for="complyr">Composer contains:</label>
+                            <input type="text" name="complyr" id="complyr" class="form-control" ng-model="filterValues.COMP_LYR" ng-change="FilterChange()" ng-required="false" ng-minlength="1" ng-maxlength="100">
 
                             <label for="arr">Arranger contains:</label>
-                            <input type="text" name="arr" id="arr" class="form-control" ng-model="filterValues.ARRANGER" ng-change="FilterChange()"  ng-required="false" ng-minlength="1" ng-maxlength="100">
+                            <input type="text" name="arr" id="arr" class="form-control" ng-model="filterValues.ARRANGER" ng-change="FilterChange()" ng-required="false" ng-minlength="1" ng-maxlength="100">
 
                             <label for="arr">Catalog # contains:</label>
                             <input type="text" name="catnum" id="catnum" class="form-control" ng-model="filterValues.CATNUM" ng-change="FilterChange()" ng-required="false" ng-minlength="1" ng-maxlength="100">
@@ -154,8 +156,8 @@
                             <label for="prodtitle">Production Title contains:</label>
                             <input type="text" name="prodtitle" id="prodtitle" class="form-control" ng-model="filterValues.PRODTITLE" ng-change="FilterChange()" ng-required="false" ng-minlength="1" ng-maxlength="100">
 
-                            <label for="id">Id contains:</label>
-                            <input type="text" name="id" id="id" class="form-control" ng-model="filterValues.ID" ng-required="false" ng-change="FilterChange()" ng-minlength="1" ng-maxlength="100">
+                            <label for="id">Photo contains:</label>
+                            <input type="text" name="id" id="id" class="form-control" ng-model="filterValues.PHOTO" ng-required="false" ng-change="FilterChange()" ng-minlength="1" ng-maxlength="100">
 
                             <label for="id">Notes contain:</label>
                             <input type="text" name="notes" id="notes" class="form-control" ng-model="filterValues.NOTES" ng-required="false" ng-change="FilterChange()" ng-minlength="1" ng-maxlength="100">
@@ -166,9 +168,8 @@
                             <label for="pubcatnum">Public catalog number contains:</label>
                             <input type="text" name="pubcatnum" id="pubcatnum" class="form-control" ng-model="filterValues.PCN" ng-required="false" ng-change="FilterChange()" ng-minlength="1" ng-maxlength="100">
 
- 
-                            <label for="picture">Fakebook contains:</label>
-                            <input type="text" name="picture" id="picture" class="form-control" ng-model="filterValues.PICTURE" ng-required="false" ng-change="FilterChange()" ng-minlength="1" ng-maxlength="100">
+                            <!--<label for="picture">Fakebook contains:</label>
+                            <input type="text" name="picture" id="picture" class="form-control" ng-model="filterValues.PICTURE" ng-required="false" ng-change="FilterChange()" ng-minlength="1" ng-maxlength="100">-->
 
                             <br />
 
@@ -200,10 +201,6 @@
                 <button type="button" class="btn btn-default col-md-offset-1" data-dismiss="modal">Back</i></button>
                 <div class="modal-body">
                     <div id="scroll-wrap">
-                        <div class="text-primary">Arrangers:</div>
-                        <div ng-show="detailData.ARRANGERS1">{{detailData.ARRANGERS1}}</div>
-                        <div ng-show="detailData.ARRANGERS2">{{detailData.ARRANGERS2}}</div>
-                        <br />
 
                         <div class="text-primary">Composers:</div>
                         <div ng-show="detailData.COMPOSERS1">{{detailData.COMPOSERS1}}</div>
@@ -212,12 +209,17 @@
                         <div ng-show="detailData.COMPOSERS4">{{detailData.COMPOSERS4}}</div>
                         <br />
 
-                        <div class="text-primary">Arrangement Type:</div>
-                        <div ng-show="detailData.ARRANGTYPE">{{detailData.ARRANGTYPE}}</div>
+                        <div class="text-primary">Arrangers:</div>
+                        <div ng-show="detailData.ARRANGERS1">{{detailData.ARRANGERS1}}</div>
+                        <div ng-show="detailData.ARRANGERS2">{{detailData.ARRANGERS2}}</div>
                         <br />
 
-                        <div class="text-primary">Key:</div>
-                        <div ng-show="detailData.KEY">{{detailData.KEY}}</div>
+
+                        <div class="text-primary">Photo/Artwork:</div>
+                        <div ng-show="detailData.PHOTO1">{{detailData.PHOTO1}}</div>
+                        <div ng-show="detailData.PHOTO2">{{detailData.PHOTO2}}</div>
+                        <div ng-show="detailData.PHOTO3">{{detailData.PHOTO3}}</div>
+                        <div ng-show="detailData.PHOTO4">{{detailData.PHOTO4}}</div>
                         <br />
 
                         <div class="text-primary">Title Year:</div>
@@ -228,11 +230,12 @@
                         <div ng-show="detailData.ARRANGYEAR">{{detailData.ARRANGYEAR}}</div>
                         <br />
 
-                        <div class="text-primary">Lyricists:</div>
-                        <div ng-show="detailData.LYRICISTS1">{{detailData.LYRICISTS1}}</div>
-                        <div ng-show="detailData.LYRICISTS2">{{detailData.LYRICISTS2}}</div>
-                        <div ng-show="detailData.LYRICISTS3">{{detailData.LYRICISTS3}}</div>
-                        <div ng-show="detailData.LYRICISTS4">{{detailData.LYRICISTS4}}</div>
+                        <div class="text-primary">Arrangement Type:</div>
+                        <div ng-show="detailData.ARRANGTYPE">{{detailData.ARRANGTYPE}}</div>
+                        <br />
+
+                        <div class="text-primary">Key:</div>
+                        <div ng-show="detailData.KEY">{{detailData.KEY}}</div>
                         <br />
 
                         <div class="text-primary">Plate Number:</div>
@@ -249,10 +252,6 @@
 
                         <div class="text-primary">Large:</div>
                         <div ng-show="detailData.LARGE">{{detailData.LARGE}}</div>
-                        <br />
-
-                        <div class="text-primary">Other Collections (ID #'S):</div>
-                        <div ng-show="detailData.ID">{{detailData.ID}}</div>
                         <br />
 
                         <div class="text-primary">Publisher:</div>
