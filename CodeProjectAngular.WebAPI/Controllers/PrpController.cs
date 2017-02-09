@@ -8,30 +8,26 @@ using System.Web.Http;
 
 namespace CodeProjectAngular.WebAPI.Controllers
 {
-    public class OrchestrationsController : ApiController
+    public class PrpController : ApiController
     {
         CatalogDbEntities _db = new CatalogDbEntities();
 
- 
+      
         
         // GET api/values
-        public IEnumerable<Orchestration> Get(
+        public IEnumerable<Prp> Get(
             string TITLE, 
             string COMP_LYR,
-            string ARRANGER,
-            string CATNUM,
+            string PERFORMER,
             string PUBLISHER,
             string TITLEYEAR,
             string ARRANGYEAR,
             string ARRANGTYPE,
-            string KEY,
             string PRODTYPE,
             string PRODTITLE,
-            string ID,
             string NOTES,
-            string PLATE_NUMBER,
-            string PCN,
-            string LARGE,
+            string COMPANY,
+            string MEDIACAT,
             string PICTURE,
             string SEARCHBOX,
             string ROW_START,
@@ -41,23 +37,19 @@ namespace CodeProjectAngular.WebAPI.Controllers
 
  
             var model = _db.Database
-                .SqlQuery<Orchestration>("GetOrchestrations @fTITLE, @fCOMP_LYR, @fARRANGER,@fCATNUM ,@fPUBLISHER ,@fTITLEYEAR ,@fARRANGYEAR, @fARRANGTYPE ,@fKEY ,@fPRODTYPE ,@fPRODTITLE ,@fID ,@fNOTES ,@fPLATE_NUMBER ,@fPCN ,@fLARGE, @fPICTURE, @fSEARCHBOX, @fROW_START, @fSORT_BY ",
+                .SqlQuery<Prp>("GetPrp @fTITLE, @fCOMP_LYR, @fPERFORMER, @fPUBLISHER ,@fTITLEYEAR ,@fARRANGYEAR, @fARRANGTYPE, @fPRODTYPE ,@fPRODTITLE ,@fNOTES ,@fCOMPANY ,@fMEDIACAT , @fPICTURE, @fSEARCHBOX, @fROW_START, @fSORT_BY ",
                 new SqlParameter("@fTITLE", TITLE),
-                new SqlParameter("@fCOMP_LYR",COMP_LYR),
-                new SqlParameter("@fARRANGER",ARRANGER),
-                new SqlParameter("@fCATNUM",CATNUM),
-                new SqlParameter("@fPUBLISHER",PUBLISHER),
+                new SqlParameter("@fCOMP_LYR", COMP_LYR),
+                new SqlParameter("@fPERFORMER", PERFORMER),
+                 new SqlParameter("@fPUBLISHER",PUBLISHER),
                 new SqlParameter("@fTITLEYEAR",TITLEYEAR),
                 new SqlParameter("@fARRANGYEAR",ARRANGYEAR),
                 new SqlParameter("@fARRANGTYPE", ARRANGTYPE),
-                new SqlParameter("@fKEY",KEY),
                 new SqlParameter("@fPRODTYPE",PRODTYPE),
                 new SqlParameter("@fPRODTITLE",PRODTITLE),
-                new SqlParameter("@fID",ID),
                 new SqlParameter("@fNOTES",NOTES),
-                new SqlParameter("@fPLATE_NUMBER",PLATE_NUMBER),
-                new SqlParameter("@fPCN",PCN),
-                new SqlParameter("@fLARGE",LARGE),
+                new SqlParameter("@fCOMPANY",COMPANY),
+                new SqlParameter("@fMEDIACAT",MEDIACAT),
                 new SqlParameter("@fPICTURE", PICTURE),
                 new SqlParameter("@fSEARCHBOX", SEARCHBOX),
                 new SqlParameter("@fROW_START",ROW_START),

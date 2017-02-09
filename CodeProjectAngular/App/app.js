@@ -39,6 +39,16 @@
                   templateUrl: './View/PianorolBrowse.html',
                   controller: 'PianorolBrowseController'
               })
+              .state('prpbrowse', {
+                  url: '/PrpBrowse',
+                  templateUrl: './View/PrpBrowse.html',
+                  controller: 'PrpBrowseController'
+              })
+             .state('trakcsbrowse', {
+                 url: '/TracksBrowse',
+                 templateUrl: './View/TracksBrowse.html',
+                 controller: 'TracksBrowseController'
+             })
               .state('78browse', {
                   url: '/78Browse',
                   templateUrl: './View/78Browse.html',

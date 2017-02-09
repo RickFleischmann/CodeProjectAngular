@@ -68,6 +68,8 @@
     <Content Include="App\baseDirective.js" />
     <Content Include="App\baseService.js" />
     <Content Include="App\78Browse.js" />
+    <Content Include="App\TracksBrowse.js" />
+    <Content Include="App\PrpBrowse.js" />
     <Content Include="App\PianorolBrowse.js" />
     <Content Include="App\SilentBrowse.js" />
     <Content Include="App\SolosBrowse.js" />
@@ -539,9 +541,10 @@
     <Content Include="Style\CSS\common.css" />
     <Content Include="Style\CSS\style.css" />
     <Content Include="View\Error.html" />
-    <Content Include="View\FilterPage.html" />
     <Content Include="View\Home.html" />
     <Content Include="View\78Browse.html" />
+    <Content Include="View\TracksBrowse.html" />
+    <Content Include="View\PrpBrowse.html" />
     <Content Include="View\PianorolBrowse.html" />
     <Content Include="View\SilentBrowse.html" />
     <Content Include="View\SolosBrowse.html" />

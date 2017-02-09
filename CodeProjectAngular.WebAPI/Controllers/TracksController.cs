@@ -8,30 +8,33 @@ using System.Web.Http;
 
 namespace CodeProjectAngular.WebAPI.Controllers
 {
-    public class OrchestrationsController : ApiController
+    public class TracksController : ApiController
     {
         CatalogDbEntities _db = new CatalogDbEntities();
 
- 
+       
         
         // GET api/values
-        public IEnumerable<Orchestration> Get(
+        public IEnumerable<Track> Get(
+            
+            string MEDIA_TITLE,
+            string MEDIUM,
+            string MEDIACAT,
+            string COMPANY,
+            string REC_MONTH,
+            string REC_DAY,
+            string REC_YEAR,
             string TITLE, 
             string COMP_LYR,
             string ARRANGER,
-            string CATNUM,
+            string PERFORMER,
             string PUBLISHER,
             string TITLEYEAR,
             string ARRANGYEAR,
             string ARRANGTYPE,
-            string KEY,
             string PRODTYPE,
             string PRODTITLE,
-            string ID,
             string NOTES,
-            string PLATE_NUMBER,
-            string PCN,
-            string LARGE,
             string PICTURE,
             string SEARCHBOX,
             string ROW_START,
@@ -41,23 +44,25 @@ namespace CodeProjectAngular.WebAPI.Controllers
 
  
             var model = _db.Database
-                .SqlQuery<Orchestration>("GetOrchestrations @fTITLE, @fCOMP_LYR, @fARRANGER,@fCATNUM ,@fPUBLISHER ,@fTITLEYEAR ,@fARRANGYEAR, @fARRANGTYPE ,@fKEY ,@fPRODTYPE ,@fPRODTITLE ,@fID ,@fNOTES ,@fPLATE_NUMBER ,@fPCN ,@fLARGE, @fPICTURE, @fSEARCHBOX, @fROW_START, @fSORT_BY ",
+                .SqlQuery<Track>("GetTracks @fMEDIA_TITLE, @fMEDIUM , @fMEDIACAT , @fCOMPANY , @fREC_MONTH , @fREC_DAY , @fREC_YEAR , @fTITLE ,  @fCOMP_LYR  , @fARRANGER   , @fPERFORMER , @fPUBLISHER   , @fTITLEYEAR   , @fARRANGYEAR   , @fARRANGTYPE   , @fPRODTYPE  , @fPRODTITLE   , @fNOTES   , @fPICTURE   , @fSEARCHBOX , @fROW_START , @fSORT_BY",
+                 new SqlParameter("@fMEDIA_TITLE", MEDIA_TITLE),
+                 new SqlParameter("@fMEDIUM", MEDIUM),
+                 new SqlParameter("@fMEDIACAT", MEDIACAT),
+                 new SqlParameter("@fCOMPANY", COMPANY),
+                 new SqlParameter("@fREC_MONTH", REC_MONTH),
+                 new SqlParameter("@fREC_DAY", REC_DAY),
+                 new SqlParameter("@fREC_YEAR", REC_YEAR),              
                 new SqlParameter("@fTITLE", TITLE),
                 new SqlParameter("@fCOMP_LYR",COMP_LYR),
                 new SqlParameter("@fARRANGER",ARRANGER),
-                new SqlParameter("@fCATNUM",CATNUM),
+                new SqlParameter("@fPERFORMER",PERFORMER),
                 new SqlParameter("@fPUBLISHER",PUBLISHER),
                 new SqlParameter("@fTITLEYEAR",TITLEYEAR),
                 new SqlParameter("@fARRANGYEAR",ARRANGYEAR),
                 new SqlParameter("@fARRANGTYPE", ARRANGTYPE),
-                new SqlParameter("@fKEY",KEY),
                 new SqlParameter("@fPRODTYPE",PRODTYPE),
                 new SqlParameter("@fPRODTITLE",PRODTITLE),
-                new SqlParameter("@fID",ID),
                 new SqlParameter("@fNOTES",NOTES),
-                new SqlParameter("@fPLATE_NUMBER",PLATE_NUMBER),
-                new SqlParameter("@fPCN",PCN),
-                new SqlParameter("@fLARGE",LARGE),
                 new SqlParameter("@fPICTURE", PICTURE),
                 new SqlParameter("@fSEARCHBOX", SEARCHBOX),
                 new SqlParameter("@fROW_START",ROW_START),

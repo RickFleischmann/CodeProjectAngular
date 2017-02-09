@@ -180,6 +180,8 @@
     </Compile>
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\C78Controller.cs" />
+    <Compile Include="Controllers\TracksController.cs" />
+    <Compile Include="Controllers\PrpController.cs" />
     <Compile Include="Controllers\PianorolController.cs" />
     <Compile Include="Controllers\SilentController.cs" />
     <Compile Include="Controllers\SolosController.cs" />
