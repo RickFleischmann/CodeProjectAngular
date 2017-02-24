@@ -62,7 +62,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="Prp in Prp | orderBy:SORT_BY:sortReverse">
+            <tr ng-repeat="Prp in Prp">
                 <td>
                     <a href ng-click="DetailModal(Prp.ID_PRP)">{{Prp.TITLE}}</a>
                 </td>

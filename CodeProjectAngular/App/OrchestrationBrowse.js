@@ -14,7 +14,7 @@
             return newIndex;
         };
 
-        $scope.SORT_BY = 'TITLE'; // set the default sort type
+        $scope.SORT_BY = 'ROW_NUM'; // set the default sort type
         $scope.SearchBox = '';
         $scope.row_start = 1;
         $scope.row_display_end = 0;
@@ -111,6 +111,16 @@
 
             // add ROW_START and SORT_TYPE
             uri += 'ROW_START=' + $scope.row_start + '&SORT_BY=' + $scope.SORT_BY;
+
+            //NOTE: Made a change to angular.js
+            //      to enable coding of a single apostrophe
+            //function encodeUriSegment(val) {
+            //    return encodeUriQuery(val, true).
+            //               replace(/%26/gi, '&').
+            //               replace(/%3D/gi, '=').
+            //               replace(/%2B/gi, '+').
+            //              replace(/%27/gi, "'");    <<== added last  line
+
 
             console.log(uri);
 

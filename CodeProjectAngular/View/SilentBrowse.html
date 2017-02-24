@@ -63,7 +63,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="Silent in Silent | orderBy:SORT_BY:sortReverse">
+            <tr ng-repeat="Silent in Silent">
                 <td>
                     <a href ng-click="DetailModal(Silent.ID_SILENT)">{{Silent.TITLE}}</a>
                 </td>

@@ -63,7 +63,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="orchestration in orchestrations | orderBy:SORT_BY:sortReverse">
+            <tr ng-repeat="orchestration in orchestrations">
                 <td>
                     <a href ng-click="DetailModal(orchestration.ID_JAZZ)">{{orchestration.TITLE}}</a>
                 </td>

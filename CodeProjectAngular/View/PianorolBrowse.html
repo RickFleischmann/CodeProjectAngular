@@ -49,6 +49,7 @@
                 </th>
             </tr>
             <tr>
+                <th>row</th>
                 <th>Title</th>
                 <!--<th>Image</th>-->
                 <th>Company</th>
@@ -62,15 +63,16 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="Pianorol in Pianorol | orderBy:SORT_BY:sortReverse">
+            <tr ng-repeat="Pianorol in Pianorol">
+ 
                 <td>
                     <a href ng-click="DetailModal(Pianorol.ID_PIANOROL)">{{Pianorol.TITLE}}</a>
                 </td>
                 <!--<td>
-                     <div ng-show="Pianorol.PICTURE">
-                          <a target="_blank" ng-href="/Content/Images/{{Pianorol.PICTURE}}"><i class="fa fa-music"></i></a>
-                    </div>
-                <td>-->
+             <div ng-show="Pianorol.PICTURE">
+                  <a target="_blank" ng-href="/Content/Images/{{Pianorol.PICTURE}}"><i class="fa fa-music"></i></a>
+            </div>
+        <td>-->
                 <td>
                     {{Pianorol.COMPANY}}
                 </td>

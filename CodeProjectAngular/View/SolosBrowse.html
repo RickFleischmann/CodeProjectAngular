@@ -67,7 +67,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="Solos in Solos | orderBy:SORT_BY:sortReverse">
+            <tr ng-repeat="Solos in Solos">
                 <td>
                     <a href ng-click="DetailModal(Solos.ID_SOLOS)">{{Solos.TITLE}}</a>
                 </td>

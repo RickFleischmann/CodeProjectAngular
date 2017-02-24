@@ -129,7 +129,6 @@
 
                  $scope.total_rows = $scope.Pianorol[0].TOTAL_ROWS;
                  $scope.row_start = $scope.Pianorol[0].ROW_NUM
-
  
                 if ($scope.row_start+19<$scope.total_rows) {
                     $scope.row_display_end = $scope.row_start + 19;

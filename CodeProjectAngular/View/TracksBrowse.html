@@ -57,7 +57,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="Tracks in Tracks | orderBy:SORT_BY:sortReverse">
+            <tr ng-repeat="Tracks in Tracks">
                 <td>
                     <a href ng-click="DetailModal(Tracks.ID_TRACKS)">{{Tracks.TITLE}}</a>
                 </td>

@@ -67,7 +67,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="SheetMus in SheetMus | orderBy:SORT_BY:sortReverse">
+            <tr ng-repeat="SheetMus in SheetMus">
                 <td>
                     <a href ng-click="DetailModal(SheetMus.ID_SHEETMUS)">{{SheetMus.TITLE}}</a>
                 </td>
