@@ -11,19 +11,19 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Import Catalog to Sql server"
   DTS:PackageType="5"
-  DTS:VersionBuild="29"
-  DTS:VersionGUID="{83F42DC6-3E50-414D-B39F-AA6277B656BF}">
+  DTS:VersionBuild="34"
+  DTS:VersionGUID="{A22D3497-BC2D-410D-A0C3-085761372653}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[e:\catalog\Catalog 23.5.accdb]"
+      DTS:refId="Package.ConnectionManagers[e:\catalog\Catalog 23.7.accdb]"
       DTS:CreationName="OLEDB"
       DTS:DTSID="{B3F4BBEB-7DC1-4770-8938-F656B403B086}"
-      DTS:ObjectName="e:\catalog\Catalog 23.5.accdb">
+      DTS:ObjectName="e:\catalog\Catalog 23.7.accdb">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=e:\catalog\Catalog 23.5.accdb;Provider=Microsoft.ACE.OLEDB.12.0;" />
+          DTS:ConnectionString="Data Source=e:\catalog\Catalog 23.7.accdb;Provider=Microsoft.ACE.OLEDB.12.0;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -255,7 +255,8 @@
                       lineageId="Package\import 78\OLE DB Source.Outputs[OLE DB Source Output].Columns[MATRIX]" />
                     <inputColumn
                       refId="Package\import 78\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MATRIX_NUM]"
-                      cachedDataType="i4"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="MATRIX_NUM"
                       externalMetadataColumnId="Package\import 78\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MATRIX_NUM]"
                       lineageId="Package\import 78\OLE DB Source.Outputs[OLE DB Source Output].Columns[MATRIX_NUM]" />
@@ -513,6 +514,13 @@
                       cachedName="UCASE_FLD2_DATA"
                       externalMetadataColumnId="Package\import 78\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UCASE_FLD2_DATA]"
                       lineageId="Package\import 78\OLE DB Source.Outputs[OLE DB Source Output].Columns[UCASE_FLD2_DATA]" />
+                    <inputColumn
+                      refId="Package\import 78\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[YOUTUBE]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="YOUTUBE"
+                      externalMetadataColumnId="Package\import 78\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[YOUTUBE]"
+                      lineageId="Package\import 78\OLE DB Source.Outputs[OLE DB Source Output].Columns[YOUTUBE]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -649,7 +657,8 @@
                       name="MATRIX" />
                     <externalMetadataColumn
                       refId="Package\import 78\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MATRIX_NUM]"
-                      dataType="i4"
+                      dataType="wstr"
+                      length="50"
                       name="MATRIX_NUM" />
                     <externalMetadataColumn
                       refId="Package\import 78\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MATRIX_PREFIX]"
@@ -807,6 +816,11 @@
                       refId="Package\import 78\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ROW_NUM]"
                       dataType="i4"
                       name="ROW_NUM" />
+                    <externalMetadataColumn
+                      refId="Package\import 78\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[YOUTUBE]"
+                      dataType="wstr"
+                      length="100"
+                      name="YOUTUBE" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -1067,10 +1081,11 @@
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\import 78\OLE DB Source.Outputs[OLE DB Source Output].Columns[MATRIX_NUM]"
-                      dataType="i4"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\import 78\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MATRIX_NUM]"
+                      length="50"
                       lineageId="Package\import 78\OLE DB Source.Outputs[OLE DB Source Output].Columns[MATRIX_NUM]"
                       name="MATRIX_NUM"
                       truncationRowDisposition="FailComponent" />
@@ -1439,6 +1454,16 @@
                       lineageId="Package\import 78\OLE DB Source.Outputs[OLE DB Source Output].Columns[UCASE_FLD2_DATA]"
                       name="UCASE_FLD2_DATA"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\import 78\OLE DB Source.Outputs[OLE DB Source Output].Columns[YOUTUBE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\import 78\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[YOUTUBE]"
+                      length="100"
+                      lineageId="Package\import 78\OLE DB Source.Outputs[OLE DB Source Output].Columns[YOUTUBE]"
+                      name="YOUTUBE"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1528,7 +1553,8 @@
                       name="MATRIX" />
                     <externalMetadataColumn
                       refId="Package\import 78\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MATRIX_NUM]"
-                      dataType="i4"
+                      dataType="wstr"
+                      length="50"
                       name="MATRIX_NUM" />
                     <externalMetadataColumn
                       refId="Package\import 78\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MATRIX_PREFIX]"
@@ -1710,6 +1736,11 @@
                       dataType="wstr"
                       length="250"
                       name="UCASE_FLD2_DATA" />
+                    <externalMetadataColumn
+                      refId="Package\import 78\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[YOUTUBE]"
+                      dataType="wstr"
+                      length="100"
+                      name="YOUTUBE" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -1826,7 +1857,8 @@
                       name="MATRIX" />
                     <outputColumn
                       refId="Package\import 78\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MATRIX_NUM]"
-                      dataType="i4"
+                      dataType="wstr"
+                      length="50"
                       lineageId="Package\import 78\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MATRIX_NUM]"
                       name="MATRIX_NUM" />
                     <outputColumn
@@ -1905,6 +1937,12 @@
                       length="100"
                       lineageId="Package\import 78\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PAGE_LINK]"
                       name="PAGE_LINK" />
+                    <outputColumn
+                      refId="Package\import 78\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[YOUTUBE]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\import 78\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[YOUTUBE]"
+                      name="YOUTUBE" />
                     <outputColumn
                       refId="Package\import 78\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RecDay]"
                       dataType="wstr"
@@ -2849,8 +2887,8 @@ ORDER BY tblFilmTitles.FilmTitle;</property>
               <connections>
                 <connection
                   refId="Package\import FilmSongPerson\Film, Song, Person, Role from Catalog Front end.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[e:\catalog\Catalog 23.5.accdb]"
-                  connectionManagerRefId="Package.ConnectionManagers[e:\catalog\Catalog 23.5.accdb]"
+                  connectionManagerID="Package.ConnectionManagers[e:\catalog\Catalog 23.7.accdb]"
+                  connectionManagerRefId="Package.ConnectionManagers[e:\catalog\Catalog 23.7.accdb]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -12001,7 +12039,7 @@ ORDER BY tblFilmTitles.FilmTitle;</property>
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="126,42"
+          Size="127,42"
           Id="Package\import 78"
           TopLeft="379,562" />
         <NodeLayout
@@ -12164,13 +12202,13 @@ ORDER BY tblFilmTitles.FilmTitle;</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 11]"
-          TopLeft="442,604">
+          TopLeft="442.5,604">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-222.5,35"
+              EndConnector="-223,35"
               Start="0,0"
-              End="-222.5,27.5">
+              End="-223,27.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -12181,13 +12219,13 @@ ORDER BY tblFilmTitles.FilmTitle;</property>
                     Point2="0,17.5"
                     Point3="-4,17.5" />
                   <mssgle:LineSegment
-                    End="-218.5,17.5" />
+                    End="-219,17.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="-218.5,17.5"
-                    Point2="-222.5,17.5"
-                    Point3="-222.5,21.5" />
+                    Point1="-219,17.5"
+                    Point2="-223,17.5"
+                    Point3="-223,21.5" />
                   <mssgle:LineSegment
-                    End="-222.5,27.5" />
+                    End="-223,27.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12689,7 +12727,7 @@ ORDER BY tblFilmTitles.FilmTitle;</property>
     design-time-name="Package\import 78">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="173,42"
           Id="Package\import 78\OLE DB Destination"
@@ -12729,9 +12767,7 @@ ORDER BY tblFilmTitles.FilmTitle;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -12750,11 +12786,24 @@ ORDER BY tblFilmTitles.FilmTitle;</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\import 78\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\import Books">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="152,42"
           Id="Package\import Books\OLE DB Source"
@@ -12794,7 +12843,9 @@ ORDER BY tblFilmTitles.FilmTitle;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -12817,7 +12868,7 @@ ORDER BY tblFilmTitles.FilmTitle;</property>
     design-time-name="Package\import FilmSongPerson">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="173,42"
           Id="Package\import FilmSongPerson\OLE DB Destination"
@@ -12857,7 +12908,9 @@ ORDER BY tblFilmTitles.FilmTitle;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -13161,15 +13214,15 @@ ORDER BY tblFilmTitles.FilmTitle;</property>
     design-time-name="Package\import Silent">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="173,42"
-          Id="Package\import Silent\OLE DB Destination"
-          TopLeft="456,200" />
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="152,42"
           Id="Package\import Silent\OLE DB Source"
           TopLeft="163,135" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\import Silent\OLE DB Destination"
+          TopLeft="456,200" />
         <EdgeLayout
           Id="Package\import Silent.Paths[OLE DB Source Output]"
           TopLeft="239,177">
@@ -13201,7 +13254,9 @@ ORDER BY tblFilmTitles.FilmTitle;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -13315,7 +13370,7 @@ ORDER BY tblFilmTitles.FilmTitle;</property>
     design-time-name="Package\import Tracks">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="152,42"
           Id="Package\import Tracks\OLE DB Source"
@@ -13355,7 +13410,9 @@ ORDER BY tblFilmTitles.FilmTitle;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
