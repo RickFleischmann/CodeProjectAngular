@@ -70,7 +70,7 @@
                 }
             });
 
-            if ($scope.row_start == 0) {
+            if ($scope.row_start === 0) {
                 $scope.row_start = 1;
             }
          };
@@ -86,7 +86,7 @@
 
         $scope.GetTitleBySubstring = function () {
 
-             if ($scope.SearchBox == '') {
+             if ($scope.SearchBox === '') {
                 $scope.filterValues.SEARCHBOX = ''
             } else {
                 $scope.filterValues.SEARCHBOX = $scope.SearchBox
@@ -194,7 +194,7 @@
         $scope.FilterChange = function () {
             $scope.FilterSet = false;
             angular.forEach($scope.filterValues, function (value, key) {
-                if (value != '') {
+                if (value !== '') {
                     $scope.FilterSet = true;
                 }
             });

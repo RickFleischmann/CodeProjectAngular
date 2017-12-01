@@ -36,7 +36,7 @@
           <Property Name="PERFORMERS4" Type="nvarchar" MaxLength="70" />
           <Property Name="DONE" Type="nvarchar" MaxLength="100" />
           <Property Name="MATRIX" Type="nvarchar" MaxLength="50" />
-          <Property Name="MATRIX_NUM" Type="int" />
+          <Property Name="MATRIX_NUM" Type="nvarchar" MaxLength="50" />
           <Property Name="MATRIX_PREFIX" Type="nvarchar" MaxLength="50" />
           <Property Name="MATRIX_SUFFIX" Type="nvarchar" MaxLength="50" />
           <Property Name="LOCATION" Type="nvarchar" MaxLength="100" />
@@ -69,6 +69,7 @@
           <Property Name="TOTAL_ROWS" Type="int" />
           <Property Name="ROW_NUM" Type="int" />
           <Property Name="SORT_BY" Type="nvarchar" MaxLength="50" />
+          <Property Name="YOUTUBE" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Books">
           <Key>
@@ -524,11 +525,11 @@
           <Property Name="LYRICISTS3" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
           <Property Name="LYRICISTS4" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
           <Property Name="ID_78" Type="Int32" Nullable="false" />
-          <Property Name="PERFORMERS3" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="PERFORMERS3" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="PERFORMERS4" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
           <Property Name="DONE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="MATRIX" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MATRIX_NUM" Type="Int32" />
+          <Property Name="MATRIX_NUM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="MATRIX_PREFIX" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="MATRIX_SUFFIX" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="LOCATION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
@@ -561,6 +562,7 @@
           <Property Name="PICTURE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="SEARCHBOX" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="ROW_NUM" Type="Int32" />
+          <Property Name="YOUTUBE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Book">
           <Key>
@@ -893,6 +895,7 @@
           <EntitySetMapping Name="C78">
             <EntityTypeMapping TypeName="CatalogDbModel.C78">
               <MappingFragment StoreEntitySet="78">
+                <ScalarProperty Name="YOUTUBE" ColumnName="YOUTUBE" />
                 <ScalarProperty Name="ROW_NUM" ColumnName="ROW_NUM" />
                 <ScalarProperty Name="SEARCHBOX" ColumnName="SEARCHBOX" />
                 <ScalarProperty Name="PICTURE" ColumnName="PICTURE" />

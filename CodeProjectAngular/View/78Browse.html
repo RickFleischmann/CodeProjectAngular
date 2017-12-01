@@ -172,6 +172,8 @@
                             <label for="key">Location contains:</label>
                             <input type="text" name="Location" id="Location" class="form-control" ng-model="filterValues.LOCATION" ng-required="false" ng-change="FilterChange()" ng-minlength="1" ng-maxlength="100">
 
+            
+                            
                             <label for="picture">Fakebook contains:</label>
                             <input type="text" name="picture" id="picture" class="form-control" ng-model="filterValues.PICTURE" ng-required="false" ng-change="FilterChange()" ng-minlength="1" ng-maxlength="100">
                         </div>
@@ -278,6 +280,12 @@
                         <div ng-show="detailData.NOTES1">{{detailData.NOTES1}}</div>
                         <div ng-show="detailData.NOTES2">{{detailData.NOTES2}}</div>
                         <br />
+
+                        <div class="text-primary">Youtube:</div>
+                        <div ng-show="detailData.YOUTUBE">
+                            <a href="{{detailData.YOUTUBE}}" target="_blank">Youtube Link</a>
+                        </div>
+
                     </div>
                 </div>
                 <button type="button" class="btn btn-default col-md-offset-1" data-dismiss="modal">Back</i></button>

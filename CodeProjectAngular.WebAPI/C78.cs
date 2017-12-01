@@ -41,7 +41,7 @@ namespace CodeProjectAngular.WebAPI
         public string PERFORMERS4 { get; set; }
         public string DONE { get; set; }
         public string MATRIX { get; set; }
-        public Nullable<int> MATRIX_NUM { get; set; }
+        public string MATRIX_NUM { get; set; }
         public string MATRIX_PREFIX { get; set; }
         public string MATRIX_SUFFIX { get; set; }
         public string LOCATION { get; set; }
@@ -74,5 +74,6 @@ namespace CodeProjectAngular.WebAPI
         public string PICTURE { get; set; }
         public string SEARCHBOX { get; set; }
         public Nullable<int> ROW_NUM { get; set; }
+        public string YOUTUBE { get; set; }
     }
 }
