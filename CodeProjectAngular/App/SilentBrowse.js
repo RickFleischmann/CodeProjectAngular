@@ -131,7 +131,7 @@
 
             $http({
                 method: 'GET',
-                url: 'http://99.248.19.5/webAPI/api/Silent' + uri
+                url: 'http://vince.zapto.org/webAPI/api/Silent' + uri
             })
             .success(function (data) {
                 $scope.Silent = data;

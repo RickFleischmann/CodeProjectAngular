@@ -7,7 +7,7 @@
 
         $http({
             method: 'GET',
-            url: 'http://99.248.19.5//webAPI/api/movies'
+            url: 'http://vince.zapto.org//webAPI/api/movies'
         })
          .success(function (data) {
              console.log(data);

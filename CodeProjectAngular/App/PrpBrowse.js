@@ -113,7 +113,7 @@
 
             $http({
                 method: 'GET',
-                url: 'http://99.248.19.5/webAPI/api/Prp' + uri
+                url: 'http://vince.zapto.org/webAPI/api/Prp' + uri
             })
             .success(function (data) {
                 $scope.Prp = data;

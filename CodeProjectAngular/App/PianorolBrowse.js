@@ -113,7 +113,7 @@
 
             $http({
                 method: 'GET',
-                url: 'http://99.248.19.5/webAPI/api/Pianorol' + uri
+                url: 'http://vince.zapto.org/webAPI/api/Pianorol' + uri
             })
             .success(function (data) {
                 $scope.Pianorol = data;

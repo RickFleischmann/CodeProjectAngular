@@ -118,7 +118,7 @@
 
             $http({
                 method: 'GET',
-                url: 'http://99.248.19.5/webAPI/api/Tracks' + uri
+                url: 'http://vince.zapto.org/webAPI/api/Tracks' + uri
             })
             .success(function (data) {
                 $scope.Tracks = data;

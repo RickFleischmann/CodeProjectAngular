@@ -135,7 +135,7 @@
 
             $http({
                 method: 'GET',
-                url: 'http://99.248.19.5/webAPI/api/Solos' + uri
+                url: 'http://vince.zapto.org/webAPI/api/Solos' + uri
             })
             .success(function (data) {
                 $scope.Solos = data;

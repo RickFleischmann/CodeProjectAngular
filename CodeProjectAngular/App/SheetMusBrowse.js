@@ -114,7 +114,7 @@
 
             $http({
                 method: 'GET',
-                url: 'http://99.248.19.5/webAPI/api/SheetMus' + uri
+                url: 'http://vince.zapto.org/webAPI/api/SheetMus' + uri
             })
             .success(function (data) {
                 $scope.SheetMus = data;
