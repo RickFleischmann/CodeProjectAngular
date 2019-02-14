@@ -83,7 +83,7 @@
 
         $scope.GetTitleBySubstring = function () {
 
-            if ($scope.SearchBox == '') {
+            if ($scope.SearchBox == '' || angular.isUndefined($scope.SearchBox) ) {
                 $scope.filterValues.SEARCHBOX = ''
             } else {
                 $scope.filterValues.SEARCHBOX = $scope.SearchBox
