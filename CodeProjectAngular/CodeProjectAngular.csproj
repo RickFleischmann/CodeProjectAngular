@@ -19,6 +19,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -80,9 +82,6 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\%27S WONDERFUL.pdf" />
-    <Content Include="Content\Images\ALL THE THINGS YOU ARE.pdf" />
-    <Content Include="Content\Images\ALL THROUGH THE NIGHT.pdf" />
-    <Content Include="Content\Images\ALMOST LIKE BEING IN LOVE.pdf" />
     <Content Include="Content\Images\ALONG WITH ME.pdf" />
     <Content Include="Content\Images\ALWAYS TRUE TO YOU IN MY FASHION.pdf" />
     <Content Include="Content\Images\AMONG MY SOUVENIRS.pdf" />

@@ -16,8 +16,8 @@
                     <div class="input-group col-lg-6">
                         <input ng-model="SearchBox" ng-model-options='{ debounce: 750 }' autofocus ng-change="ChangedSearchBoxSearch()" type="text" class="form-control">
                         <span class="input-group-btn">
-                            <button ng-click="FilterModal()" class="btn btn-info" type="button">Filter</i></button>
-                            <button ng-show="FilterSet==true" ng-click="ClearFilterAndRequery()" class="btn btn-info" type="button">Clear Filter</i></button>
+                            <button ng-click="FilterModal()" class="btn btn-info" type="button">Filter</button>
+                            <button ng-show="FilterSet==true" ng-click="ClearFilterAndRequery()" class="btn btn-info" type="button">Clear Filter</button>
                         </span>
 
                         <span>Rows: {{total_rows}}</span>
