@@ -449,7 +449,7 @@
         </EntityType>
         <EntityContainer Name="CatalogDbEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Orchestrations" EntityType="Self.Orchestration" />
-          <EntitySet Name="SheetMus1" EntityType="CatalogDbModel.SheetMus" />
+          <EntitySet Name="SheetMus" EntityType="CatalogDbModel.SheetMus" />
           <EntitySet Name="C78" EntityType="CatalogDbModel.C78" />
           <EntitySet Name="Books" EntityType="CatalogDbModel.Book" />
           <EntitySet Name="FilmSongPersons" EntityType="CatalogDbModel.FilmSongPerson" />
@@ -491,6 +491,7 @@
           <Property Name="LARGE" Type="Boolean" />
           <Property Name="NewRec" Type="Boolean" />
           <Property Name="ARRANGYEAR" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="TITLEYEAR" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />		  
           <Property Name="PCN" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="TOTAL_ROWS" Type="Int32" />
           <Property Name="SORT_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -852,7 +853,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="SheetMus1">
+          <EntitySetMapping Name="SheetMus">
             <EntityTypeMapping TypeName="CatalogDbModel.SheetMus">
               <MappingFragment StoreEntitySet="SheetMus">
                 <ScalarProperty Name="ROW_NUM" ColumnName="ROW_NUM" />
@@ -862,6 +863,7 @@
                 <ScalarProperty Name="TOTAL_ROWS" ColumnName="TOTAL_ROWS" />
                 <ScalarProperty Name="PCN" ColumnName="PCN" />
                 <ScalarProperty Name="ARRANGYEAR" ColumnName="ARRANGYEAR" />
+                <ScalarProperty Name="TITLEYEAR" ColumnName="TITLEYEAR" />
                 <ScalarProperty Name="NewRec" ColumnName="NewRec" />
                 <ScalarProperty Name="LARGE" ColumnName="LARGE" />
                 <ScalarProperty Name="PRINT" ColumnName="PRINT" />

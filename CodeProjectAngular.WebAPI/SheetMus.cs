@@ -42,7 +42,8 @@ namespace CodeProjectAngular.WebAPI
         public Nullable<bool> LARGE { get; set; }
         public Nullable<bool> NewRec { get; set; }
         public string ARRANGYEAR { get; set; }
-        public string PCN { get; set; }
+        public string TITLEYEAR { get; set; }
+		public string PCN { get; set; }
         public Nullable<int> TOTAL_ROWS { get; set; }
         public string SORT_BY { get; set; }
         public string PICTURE { get; set; }
